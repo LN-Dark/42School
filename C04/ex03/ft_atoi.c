@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	whitespaces(char *str, int *ptr_i)
+int	space(char *str, int *ptr_i)
 {
 	int	count;
 	int	i;
@@ -36,7 +36,7 @@ int	ft_atoi(char *str)
 	int	i;
 
 	result = 0;
-	sign = whitespaces(str, &i);
+	sign = space(str, &i);
 	while (str[i] && str[i] >= 48 && str[i] <= 57)
 	{
 		result *= 10;
