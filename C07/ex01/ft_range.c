@@ -14,22 +14,25 @@
 
 int	*ft_range(int min, int max)
 {
-	int	*matrix;
 	int	i;
-	int	size;
+	int	*result;
 
-	i = 0;
-	size = max - min;
 	if (min >= max)
-		return (NULL);
-	matrix = malloc(sizeof(int) * size);
-	if (!matrix)
-		return (NULL);
-	while (i <= size)
 	{
-		matrix[i] = min;
-		i++;
-		min++;
+		return (0);
 	}
-	return (matrix);
+	i = max - min;
+	result = (int *)malloc(sizeof(int) * (i));
+	if (result == NULL)
+	{
+		return (NULL);
+	}
+	i = 0;
+	while (max > min)
+	{
+		result[i] = min;
+		min++;
+		i++;
+	}
+	return (result);
 }
