@@ -1,38 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ulstr.c                                            :+:      :+:    :+:   */
+/*   alpha.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbranco- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/16 13:20:53 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/09/16 13:20:54 by pbranco-         ###   ########.fr       */
+/*   Created: 2024/09/20 09:09:08 by pbranco-          #+#    #+#             */
+/*   Updated: 2024/09/20 09:09:09 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
 
-int main(int argc, char **argv)
+void cases(char *str)
 {
-	int i;
-	
-	i = 0;
-	if(argc == 2)
+	int i = 0;
+	char c;
+	while(str[i] != '\0')
 	{
-		while (argv[1][i] != '\0')
-		{
-			if(argv[1][i] >= 'a' && argv[1][i] <= 'z')
-			{
-				argv[1][i] -= 32; 
-			}
-			else if(argv[1][i] >= 'A' && argv[1][i] <= 'Z')
-			{
-				argv[1][i] += 32;
-			}
-			i++;
+		if(str[i] >= 'A' && str[i] <= 'Z')
+		{	
+			c = str[i] + 32;
+			write(1, &c, 1);	
 		}
-		write(1, argv[1], i);
+		else if(str[i] >= 'a' && str[i] <= 'z')
+		{
+			c = str[i] - 32;
+			write(1, &c, 1);
+		}
+		else
+		{
+			write(1, &str[i], 1);
+		}
+		i++;
 	}
-	write(1, "\n", 1);	
-	return (0);
+	
 }
 
+int main(int argc, char **argv)
+{
+	if(argc == 2)
+		cases(argv[1]);
+	write(1, "\n", 1);
+	return (0);
+}
