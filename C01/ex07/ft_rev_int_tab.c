@@ -12,18 +12,18 @@
 
 void	ft_rev_int_tab(int *tab, int size)
 {
-	int	a;
-	int	b;
-	int	c;
+	int		i;
+	int		a;
+	int		swap;
 
-	a = 0;
-	b = size - 1;
+	i = 0;
+	a = size - 1;
 	while (i < (size / 2))
 	{
-		c = tab[i];
-		tab[a] = tab[b];
-		tab[b] = c;
-		a++;
-		b--;
+		swap = tab[i];
+		tab[i] = tab[a];
+		tab[a] = swap;
+		i++;
+		a--;
 	}
 }

@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbranco- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/07 08:18:13 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/09/07 08:18:14 by pbranco-         ###   ########.fr       */
+/*   Created: 2024/09/22 07:59:12 by pbranco-          #+#    #+#             */
+/*   Updated: 2024/09/22 07:59:13 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
-	int	a;
+	unsigned int	i;
+	unsigned int	j;
 
-	a = 0;
-	while (str[a] != '\0')
+	i = 0;
+	j = 0;
+	while (src[j] != '\0')
+		j++;
+	if (size != '\0')
 	{
-		a++;
+		while (src[i] != '\0' && i < (size - 1))
+		{
+			dest[i] = src[i];
+			i++;
+		}
+		dest[i] = '\0';
 	}
-	return (a);
+	return (j);
 }

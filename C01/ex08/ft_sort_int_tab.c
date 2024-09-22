@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_sort_int_tab.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbranco- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/07 08:18:13 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/09/07 08:18:14 by pbranco-         ###   ########.fr       */
+/*   Created: 2024/09/22 08:23:43 by pbranco-          #+#    #+#             */
+/*   Updated: 2024/09/22 08:23:44 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+void	ft_sort_int_tab(int *tab, int size)
 {
-	int	a;
+	int	i;
+	int	swap;
 
-	a = 0;
-	while (str[a] != '\0')
+	while (size >= 0)
 	{
-		a++;
+		i = 0;
+		while (i < size - 1)
+		{
+			if (tab[i] > tab[i + 1])
+			{
+				swap = tab [i];
+				tab[i] = tab [i + 1];
+				tab [i + 1] = swap;
+			}
+			i++;
+		}
+		size--;
 	}
-	return (a);
 }
