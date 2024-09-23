@@ -20,7 +20,7 @@ int	ft_atoi(const char *str)
 	int signal = 1;
 	int count = 0;
 	
-	while(str[i] != 0 &&  str[i] <= 32)
+	while(str[i] != 0 &&  str[i] <= 32 &&  str[i] != 127)
 	{
 		i++;
 	}
