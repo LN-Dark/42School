@@ -20,17 +20,17 @@ int	ft_atoi(const char *str)
 	int signal = 1;
 	int count = 0;
 	
-	while(str[i] != 0 &&  str[i] <= 32 &&  str[i] != 127)
+	while(str[i] != 0 &&  str[i] <= 32 &&  str[i] != 127 && str[i] != '\0')
 	{
 		i++;
 	}
-	while(str[i] >= 43 && str[i] < 48 && str[i] != 44 && str[i] != 46 && str[i] != 47)
+	while(str[i] >= 43 && str[i] < 48 && str[i] != 44 && str[i] != 46 && str[i] != 47  && str[i] != '\0')
 	{
 		if(str[i] == 45)
 			signal *= -1;
 		i++;
 	}
-	while(str[i] >= 48 && str[i] <= 57)
+	while(str[i] >= 48 && str[i] <= 57 && str[i] != '\0')
 	{
 		count *= 10;
 		count += str[i] - 48;
@@ -41,6 +41,6 @@ int	ft_atoi(const char *str)
 }
 /*
 int main(void){
-	printf("%d\n%d\n", ft_atoi("-12345+TRAA"), atoi("-12345+TRAA"));
+	printf("%d\n%d\n", ft_atoi(" 	-12345+TRAA"), atoi(" 	-12345+TRAA"));
 }
 */
