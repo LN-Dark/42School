@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_point.h                                         :+:      :+:    :+:   */
+/*   ft_stock_str.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pbranco- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: meferraz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/25 10:23:41 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/09/25 10:23:43 by pbranco-         ###   ########.fr       */
+/*   Created: 2024/09/19 09:34:55 by meferraz          #+#    #+#             */
+/*   Updated: 2024/09/19 09:38:38 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_POINT_H
-# define FT_POINT_H
+#ifndef FT_STOCK_STR_H
+# define FT_STOCK_STR_H
 
-typedef struct s_point
+typedef struct s_stock_str
 {
-	int	x;
-	int	y;
-}	t_point;
+	int		size;
+	char	*str;
+	char	*copy;
+}				t_stock_str;
 
-void	ft_putchar(char c);
-void	ft_putnbr(int n);
 #endif
