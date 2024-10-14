@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_count_if(char **tab, int(*f)(char*))
+int	ft_count_if(char **tab, int (*f)(char*))
 {
 	int	i;
 	int	nb;

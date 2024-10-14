@@ -53,7 +53,7 @@ int	main(int argc, char **argv)
 	{
 		j = i;
 		while (++j < argc)
-		{	
+		{
 			if (ft_strcmp(argv[i], argv[j]) > 0)
 			{
 				temp = argv[i];

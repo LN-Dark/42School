@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include <unistd.h>
 #include <fcntl.h>
 
@@ -22,7 +21,7 @@ void	disp_file(int fd)
 		write(1, &buffer, 1);
 }
 
-int		main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	int	fd;
 
