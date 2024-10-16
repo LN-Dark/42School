@@ -13,28 +13,29 @@
 #include <unistd.h>
 #include <fcntl.h>
 
-void	disp_file(int fd)
+void	display(char *filename)
 {
-	char	buffer;
+	char	character;
+	int		file;
 
-	while (read(fd, &buffer, 1) != 0)
-		write(1, &buffer, 1);
+	file = open(filename, O_RDONLY);
+	if (file < 0)
+	{
+		write(2, "Cannot read file.\n", 19);
+		return ;
+	}
+	while (read(file, &character, 1) > 0)
+		write(1, &character, 1);
+	close(file);
 }
 
-int	main(int argc, char **argv)
+int	main(int argc, char *argv[])
 {
-	int	fd;
-
-	if (argc != 2)
-	{
-		if (argc > 2)
-			write(2, "Too many arguments.\n", 20);
-		if (argc < 2)
-			write(2, "File name missing.\n", 19);
-		return (1);
-	}
-	fd = open(argv[1], O_RDONLY);
-	disp_file(fd);
-	close(fd);
+	if (argc == 1)
+		write(2, "File name missing.\n", 19);
+	else if (argc > 2)
+		write(2, "Too many arguments.\n", 20);
+	else
+		display(argv[1]);
 	return (0);
 }
