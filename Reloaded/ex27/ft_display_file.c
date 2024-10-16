@@ -3,39 +3,42 @@
 /*                                                        :::      ::::::::   */
 /*   ft_display_file.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pbranco- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 14:26:49 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/10/14 14:26:53 by pbranco-         ###   ########.fr       */
+/*   Updated: 2024/10/16 16:26:56 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <fcntl.h>
 
-void	display(char *filename)
+void	ft_putstr(char *str)
 {
-	char	character;
-	int		file;
-
-	file = open(filename, O_RDONLY);
-	if (file < 0)
-	{
-		write(2, "Cannot read file.\n", 19);
-		return ;
-	}
-	while (read(file, &character, 1) > 0)
-		write(1, &character, 1);
-	close(file);
+	while (*str)
+		write(1, str++, 1);
 }
 
-int	main(int argc, char *argv[])
+void	ft_display(char *string)
+{
+	int		file_ptr;
+	char	c;
+
+	file_ptr = open(string, O_RDONLY, 0);
+	if (file_ptr == -1)
+		ft_putstr("Cannot read file.\n");
+	while (read(file_ptr, &c, 1) == 1)
+		write(1, &c, 1);
+	close(file_ptr);
+}
+
+int	main(int argc, char **argv)
 {
 	if (argc == 1)
-		write(2, "File name missing.\n", 19);
-	else if (argc > 2)
-		write(2, "Too many arguments.\n", 20);
-	else
-		display(argv[1]);
+		ft_putstr("File name missing.\n");
+	if (argc == 2)
+		ft_display(argv[1]);
+	if (argc > 2)
+		ft_putstr("Too many arguments.\n");
 	return (0);
 }
