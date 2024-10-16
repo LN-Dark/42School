@@ -1,20 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_recursive_factorial.c                           :+:      :+:    :+:   */
+/*   ft_point.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbranco- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/16 10:42:41 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/09/16 10:42:48 by pbranco-         ###   ########.fr       */
+/*   Created: 2024/09/25 10:23:41 by pbranco-          #+#    #+#             */
+/*   Updated: 2024/09/25 10:23:43 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_recursive_factorial(int nb)
+#ifndef FT_POINT_H
+# define FT_POINT_H
+
+typedef struct s_point
 {
-	if (nb < 0)
-		return (0);
-	if (nb == 0)
-		return (1);
-	return (nb * ft_recursive_factorial(nb - 1));
-}
+	int	x;
+	int	y;
+}	t_point;
+
+void	ft_putchar(char c);
+void	ft_putnbr(int n);
+#endif

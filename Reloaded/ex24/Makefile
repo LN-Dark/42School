@@ -3,16 +3,17 @@ OBJS	= ${SRCS:.c=.o}
 INCS	= includes
 NAME	= libft.a
 LIBC	= ar rc
+LIBR	= ranlib
 CC		= gcc
 RM		= rm -f
 CFLAGS	= -Wall -Wextra -Werror
 
 .c.o:
-	${CC} ${CFLAGS} -c $< -o ${OBJS} -I ${INCS}
+	${CC} ${CFLAGS} -c $< -o ${<:.c=.o} -I ${INCS}
 
 ${NAME}: ${OBJS}
 	${LIBC} ${NAME} ${OBJS}
-	${NAME}
+	${LIBR} ${NAME}
 
 all: ${NAME}
 
