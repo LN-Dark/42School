@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_params.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pbranco- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 09:07:34 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/09/18 09:07:35 by pbranco-         ###   ########.fr       */
+/*   Updated: 2024/10/16 12:54:40 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,21 @@ void	ft_print_params(char *str)
 	i = 0;
 	while (str[i] != '\0')
 	{
-		ft_putchar(&str[i]);
+		ft_putchar(str[i]);
 		i++;
 	}
 }
 
-int	main(int ac, char **av)
+int	main(int argc, char **argv)
 {
-	int	pos;
+	int	i;
 
-	(void) ac;
-	pos = 1;
-	while (av[pos])
+	i = 1;
+	while (i <= (argc - 1))
 	{
-		ft_print_params(av[pos]);
-		write(1, "\n", 1);
-		pos++;
+		ft_print_params(argv[i]);
+		ft_putchar('\n');
+		i++;
 	}
 	return (0);
 }

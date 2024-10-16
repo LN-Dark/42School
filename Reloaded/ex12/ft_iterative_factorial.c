@@ -3,26 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pbranco- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 10:41:42 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/09/16 10:41:43 by pbranco-         ###   ########.fr       */
+/*   Updated: 2024/10/16 13:03:42 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_iterative_factorial(int nb)
 {
-	unsigned int	res;
+	int	res;
 
 	res = 1;
+	if (nb < 0 || nb > 2147483647)
+		return (0);
 	while (nb > 0)
 	{
 		res *= nb;
 		nb--;
-	}
-	if (nb < 0)
-	{
-		return (0);
 	}
 	return (res);
 }

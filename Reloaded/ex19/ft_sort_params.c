@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sort_params.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pbranco- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 09:09:08 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/09/18 09:09:09 by pbranco-         ###   ########.fr       */
+/*   Updated: 2024/10/16 13:00:04 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,28 +18,20 @@ void	ft_putstr(char *str)
 {
 	while (*str)
 	{
-		ft_putchar(str);
+		ft_putchar(*str);
 		str++;
 	}
+	ft_putchar('\n');
 }
 
 int	ft_strcmp(char *s1, char *s2)
 {
-	int	pos;
+	int	i;
 
-	pos = 0;
-	while (s1[pos] != '\0' || s2[pos] != '\0')
-	{
-		if (s1[pos] == s2[pos])
-		{
-			pos++;
-		}
-		if (s1[pos] < s2 [pos] || s1[pos] > s2 [pos])
-		{
-			return (s1[pos] - s2[pos]);
-		}
-	}
-	return (0);
+	i = 0;
+	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
+		i++;
+	return (s1[i] - s2[i]);
 }
 
 int	main(int argc, char **argv)
@@ -66,7 +58,6 @@ int	main(int argc, char **argv)
 	while (++i < argc)
 	{
 		ft_putstr(argv[i]);
-		write(1, "\n", 1);
 	}
 	return (0);
 }
