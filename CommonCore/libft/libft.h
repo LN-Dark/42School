@@ -6,7 +6,7 @@
 /*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 08:58:45 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/10/17 14:01:05 by pbranco-         ###   ########.fr       */
+/*   Updated: 2024/10/17 14:40:05 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t n);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 char	*ft_strtrim(char const *s1, char const *set);
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+void	*ft_memcpy(void *dest, const void *src, size_t n);
 
 #endif

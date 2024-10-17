@@ -6,7 +6,7 @@
 /*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 10:58:06 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/10/17 10:40:04 by pbranco-         ###   ########.fr       */
+/*   Updated: 2024/10/17 14:45:13 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -16,14 +16,26 @@ void print_split_result(char **result)
     for (int i = 0; result[i] != NULL; i++)
     {
         printf("Word %d: %s\n", i, result[i]);
-        free(result[i]);  // Libera a memória alocada para cada palavra
+        free(result[i]);
     }
-    free(result);  // Libera a memória alocada para o array de ponteiros
+    free(result);
+}
+
+void print_char_with_index(unsigned int index, char *c)
+{
+    printf("Index: %u, Character: %c\n", index, *c);
+}
+
+char to_upper(unsigned int index, char c)
+{
+    (void)index;
+    return (c >= 'a' && c <= 'z') ? c - 32 : c;
 }
 
 int main(void)
 {
 	char *s[3];
+	char *result2;
 	printf("%d %s\n", ft_atoi("-1254hagh"), "-> ft_atoi");
 	printf("%s %s\n", ft_itoa(-125478), "-> ft_itoa");
 	printf("%d %s\n", ft_isalnum(-125478), "-> ft_isalnum");
@@ -43,7 +55,6 @@ int main(void)
 	printf("%d %s\n", ft_strncmp("teste", "zeste", 5), "-> ft_strncmp");
 	printf("%d %s\n", ft_tolower(87), "-> ft_tolower");
 	printf("%d %s\n", ft_toupper(119), "-> ft_toupper");
-
 	const char *str = "Este é um exemplo de string";
     char sep = ' ';
     char **result = ft_split(str, sep);
@@ -56,5 +67,28 @@ int main(void)
     {
         printf("Erro ao dividir a string.\n");
     }
+	printf("%s %s\n", ft_strrchr("Olaaab", 97), "-> ft_strrchr");
+	printf("%s %s\n", ft_strnstr("Olaaab", "a", 3), "-> ft_strnstr");
+	printf("%s %s\n", ft_substr("Olaaab", 2, 3), "-> ft_substr");
+	char str2[] = "Hello, World!";
+    ft_striteri(str2, print_char_with_index);
+    printf("%s %s\n", ft_strtrim("OlaaabO", "O"), "-> ft_strtrim");
+
+    result2 = ft_strmapi("hello world", to_upper);
+    if (result2)
+    {
+        printf("Mapped string: '%s'\n", result2);
+        free(result2);
+    }
+    else
+    {
+        printf("Error allocating memory!\n");
+    }
+
+    char src3[] = "Hello, World!";
+    char dest3[20];
+    ft_memcpy(dest3, src3, 13);
+    dest3[13] = '\0';
+    printf("Destination: '%s'\n", dest3);
 
 }
