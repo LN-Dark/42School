@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pbranco- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/15 09:18:23 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/10/15 09:18:24 by pbranco-         ###   ########.fr       */
+/*   Created: 2024/10/17 12:38:44 by pbranco-          #+#    #+#             */
+/*   Updated: 2024/10/17 12:50:09 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_toupper(int i)
+char	*ft_strrchr(const char *s, int c)
 {
-	if (i >= 97 && i <= 122)
+	int	i;
+
+	i = ft_strlen(s);
+	if (c == 0)
+		return ((char *)s + i);
+	while (i > 0)
 	{
-		return (i - 32);
+		if (s[i - 1] == (char)c)
+			return ((char *)s + (i - 1));
+		i--;
 	}
-	return (i);
+	return (NULL);
 }

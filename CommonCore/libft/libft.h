@@ -6,7 +6,7 @@
 /*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 08:58:45 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/10/17 10:41:10 by pbranco-         ###   ########.fr       */
+/*   Updated: 2024/10/17 12:54:25 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,8 @@ char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_itoa(int n);
 char	*ft_strchr(const char *s, int i);
 char	**ft_split(char const *str, char c);
+void	ft_putendl_fd(char *s, int fd);
+char	*ft_strrchr(const char *s, int c);
+char	*ft_strnstr(const char *haystack, const char *needle, size_t n);
 
 #endif

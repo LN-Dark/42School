@@ -6,7 +6,7 @@
 /*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 15:47:32 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/10/16 12:41:37 by pbranco-         ###   ########.fr       */
+/*   Updated: 2024/10/17 12:47:12 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strchr(const char *a, int i)
 {
-	char *s;
-	int	j;
+	char	*s;
+	int		j;
 
 	j = 0;
 	s = (char *)a;
@@ -26,6 +26,6 @@ char	*ft_strchr(const char *a, int i)
 		j++;
 	}
 	if (i == '\0')
-		return (s);
+		return (s + j);
 	return (0);
 }

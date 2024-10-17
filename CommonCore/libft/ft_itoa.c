@@ -15,7 +15,7 @@
 static unsigned int	ft_nb_size(int nb)
 {
 	unsigned int	length;
-	
+
 	length = 0;
 	if (nb == 0)
 		return (1);
@@ -31,8 +31,8 @@ static unsigned int	ft_nb_size(int nb)
 
 char	*ft_itoa(int n)
 {
-	char		*string;
 	unsigned int	length;
+	char			*string;
 
 	length = ft_nb_size(n);
 	string = (char *)malloc(sizeof(char) * (length + 1));
