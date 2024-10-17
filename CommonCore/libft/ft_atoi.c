@@ -3,13 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pbranco- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 09:00:00 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/10/15 09:00:03 by pbranco-         ###   ########.fr       */
+/*   Updated: 2024/10/16 11:07:12 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <libft.h>
+
+#include "libft.h"
 
 int	ft_atoi(const char *str)
 {
@@ -25,14 +26,10 @@ int	ft_atoi(const char *str)
 		i++;
 	if ((str[i] == 43 || str[i] == 45) && (str[i + 1] == 43
 		|| str[i + 1] == 45) && str[i] != '\0')
-	{
 		return (0);
-	}
 	else
-	{
 		if(str[i] == 45)
 			signal *= -1;
-	}
 	i++;
 	while (str[i] >= 48 && str[i] <= 57 && str[i] != '\0')
 	{
