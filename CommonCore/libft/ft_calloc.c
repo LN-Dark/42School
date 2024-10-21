@@ -6,7 +6,7 @@
 /*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 15:59:55 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/10/21 16:08:28 by pbranco-         ###   ########.fr       */
+/*   Updated: 2024/10/21 16:16:34 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_calloc(size_t count, size_t size)
 	size_t	b;
 
 	if (count == 0 || size == 0)
-		return (NULL);
+		return (malloc(0));
 	if (count > SIZE_MAX / size)
 		return (NULL);
 	b = count * size;
