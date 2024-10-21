@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <limits.h>
+# include <stdint.h>
 
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
@@ -50,5 +51,6 @@ void	*ft_memmove(void *dest, const void *src, size_t n);
 void	*ft_memset(void *str, int c, size_t n);
 char	*ft_strdup(const char *s);
 void	ft_bzero(void *str, size_t n);
+void	*ft_calloc(size_t count, size_t size);
 
 #endif
