@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/15 10:11:46 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/10/17 08:57:49 by pbranco-         ###   ########.fr       */
+/*   Created: 2024/10/21 13:33:38 by pbranco-          #+#    #+#             */
+/*   Updated: 2024/10/21 13:34:21 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dest, const char *src, size_t size)
+char	*ft_strdup(const char *s)
 {
-	size_t	i;
+	int		i;
+	int		j;
+	char	*str;
 
-	if (size <= 0)
-		return (ft_strlen(src));
+	if (s == NULL)
+		return (NULL);
+	j = ft_strlen(s);
+	str = (char *)malloc(sizeof(char) * (j + 1));
+	if (str == NULL)
+		return (NULL);
 	i = 0;
-	while (i < (size - 1) && src[i] != '\0')
+	while (i < j)
 	{
-		dest[i] = src[i];
+		str[i] = s[i];
 		i++;
 	}
-	dest[i] = '\0';
-	return (ft_strlen(src));
+	str[i] = '\0';
+	return (str);
 }
