@@ -1,3 +1,5 @@
+Ao seguir o guia criem a VM com 8GB e não com 12GB como diz, desta forma as partições ficam com o tamanho que tem no print do subject e não tem problemas.
+
 Guide -> https://github.com/gemartin99/Born2beroot-Tutorial
 
 Debian ISO -> https://cdimage.debian.org/mirror/cdimage/archive/10.10.0/amd64/iso-cd/debian-10.10.0-amd64-netinst.iso
