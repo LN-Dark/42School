@@ -3,7 +3,81 @@ Guide -> https://github.com/gemartin99/Born2beroot-Tutorial
 Debian ISO -> https://cdimage.debian.org/mirror/cdimage/archive/10.10.0/amd64/iso-cd/debian-10.10.0-amd64-netinst.iso
 
 
-# Sistema de Monitoramento
+# Comparação entre Rocky Linux e Debian
+
+## Rocky Linux
+- **Base:** 
+  - Baseado no Red Hat Enterprise Linux (RHEL), focado em fornecer uma alternativa gratuita e de código aberto para ambientes empresariais.
+- **Gerenciamento de Pacotes:** 
+  - Usa `yum` ou `dnf` para gerenciamento de pacotes, com pacotes no formato RPM.
+- **Público-alvo:** 
+  - Voltado principalmente para usuários empresariais e servidores que buscam robustez e confiabilidade.
+- **Suporte:** 
+  - Suportado pela comunidade e por organizações que buscam uma alternativa ao CentOS.
+- **Software:** 
+  - Focado em software empresarial e estável disponível nos repositórios do RHEL.
+
+---
+
+## Debian
+- **Base:** 
+  - Um projeto comunitário que visa ser uma distribuição universal, conhecida por sua estabilidade e liberdade de software.
+- **Gerenciamento de Pacotes:** 
+  - Usa `apt` para gerenciamento de pacotes, com pacotes no formato DEB.
+- **Público-alvo:** 
+  - Abrange uma ampla gama de usuários, desde entusiastas até servidores e ambientes de produção.
+- **Suporte:** 
+  - Tem uma comunidade muito ativa e é conhecido por seu forte compromisso com a liberdade de software.
+- **Software:** 
+  - Oferece uma vasta gama de pacotes, incluindo opções de software livre e não livre, com foco em inclusão e diversidade.
+
+---
+
+# Configurações de Segurança e Ferramentas
+
+## secure_path
+- **Descrição:** Especifica um caminho seguro onde o `sudo` deve procurar por executáveis.
+- **Conteúdo:** Lista de diretórios, incluindo:
+  - `/usr/local/sbin`: Binários de administração local.
+  - `/usr/local/bin`: Binários de aplicativos locais.
+  - `/usr/sbin`: Binários de administração do sistema.
+  - `/usr/bin`: Binários padrão do sistema.
+  - `/sbin`: Binários essenciais do sistema.
+  - `/bin`: Binários essenciais.
+  - `/snap/bin`: Binários instalados via Snap.
+
+## AppArmor
+- **Descrição:** Sistema de controle de acesso baseado em políticas para Linux.
+- **Função:** Protege o sistema operacional e os aplicativos de comportamentos indesejados ou maliciosos, restringindo permissões e acesso a arquivos e recursos do sistema.
+
+## LVM (Logical Volume Manager)
+- **Descrição:** Ferramenta de gerenciamento de volumes lógicos em sistemas Linux.
+- **Benefícios:** Permite gerenciar de forma flexível a alocação de espaço em disco, facilitando a criação, redimensionamento e gerenciamento de volumes de armazenamento.
+
+## UFW (Uncomplicated Firewall)
+- **Descrição:** Ferramenta de gerenciamento de firewall que facilita a configuração de regras de iptables em sistemas Linux.
+- **Popularidade:** Especialmente popular em distribuições baseadas em Debian e Ubuntu por sua simplicidade.
+
+---
+
+# Gerenciamento de Pacotes: `apt` vs. `aptitude`
+
+| **Aspecto**        | **apt**                                           | **aptitude**                                         |
+|--------------------|--------------------------------------------------|-----------------------------------------------------|
+| **Interface**      | Mais amigável, saída mais limpa                  | Mais técnica, voltada para usuários avançados       |
+| **Funcionalidades**| Resolve dependências de forma eficaz              | Algoritmo avançado, sugere soluções para conflitos  |
+| **Histórico**      | Não mantém histórico, a menos que redirecione     | Mantém histórico de comandos, útil para desfazer    |
+| **Comandos**       | Ex.: `apt install <pacote>`                      | Ex.: similar, mas com mais opções de interação      |
+| **Sugestões**      | Concentra-se em pacotes disponíveis               | Sugere pacotes alternativos ou versões diferentes    |
+
+---
+
+Sinta-se à vontade para explorar cada seção e entender melhor as diferenças e características de Rocky Linux e Debian, além de ferramentas úteis para gerenciamento de sistema.
+
+
+
+
+# Script de Monitoramento
 
 Este script coleta e exibe informações sobre o sistema, incluindo arquitetura, uso de CPU, memória, disco, conexões de rede e muito mais.
 
@@ -109,4 +183,6 @@ wall "	Architecture: $arch
 	Sudo: $cmnd cmd"
 
 # wall: Envia uma mensagem para todos os usuários logados. As informações coletadas são formatadas e exibidas.
+
+
 
