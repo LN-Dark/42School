@@ -72,8 +72,38 @@ Debian ISO -> https://cdimage.debian.org/mirror/cdimage/archive/10.10.0/amd64/is
 
 ---
 
-Sinta-se à vontade para explorar cada seção e entender melhor as diferenças e características de Rocky Linux e Debian, além de ferramentas úteis para gerenciamento de sistema.
+# Instruções de Configuração
 
+Para criar um grupo, use o seguinte comando:  
+`sudo groupadd (grupo)`
+
+Para verificar os grupos existentes:  
+`getent group`
+
+Para listar todos os usuários:  
+`cut -d: -f1 /etc/passwd`
+
+Para criar um novo usuário e adicioná-lo a um grupo:  
+`sudo adduser (user) (grupo)`
+
+Para permitir a porta 4242:  
+`sudo ufw allow 4242`
+
+Para apagar uma porta:  
+`sudo ufw status numbered`  
+`sudo ufw delete (porta)`
+
+Para verificar o status do SSH:  
+`sudo service ssh status`
+
+Para mudar o hostname:  
+`sudo nano /etc/hostname`
+
+Para mostrar as partições:  
+`lsblk`
+
+Para editar o crontab do root:  
+`sudo crontab -u root -e`
 
 
 
