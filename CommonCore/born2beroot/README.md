@@ -121,7 +121,7 @@ Este script coleta e exibe informações sobre o sistema, incluindo arquitetura,
 ```bash
 #!/bin/bash
 
-while true: do
+while true; do
 # ARCH
 arch=$(uname -a)
 
