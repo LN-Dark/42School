@@ -107,6 +107,9 @@ Para mostrar as partições:
 Para editar o crontab do root:  
 `sudo crontab -u root -e`
 
+Para ligar por SSH:  
+`ssh user@127.0.0.1 -p (porta)`
+
 
 
 # Script de Monitoramento
@@ -118,6 +121,7 @@ Este script coleta e exibe informações sobre o sistema, incluindo arquitetura,
 ```bash
 #!/bin/bash
 
+while true: do
 # ARCH
 arch=$(uname -a)
 
@@ -215,6 +219,7 @@ wall "	Architecture: $arch
 	Sudo: $cmnd cmd"
 
 # wall: Envia uma mensagem para todos os usuários logados. As informações coletadas são formatadas e exibidas.
-
+sleep 600
+done
 
 
