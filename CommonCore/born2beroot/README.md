@@ -113,6 +113,9 @@ Para ligar por SSH:
 Comando do crontab para executar o script de 10 em 10 minutos desde que ligamos a VM:  
 `@reboot /caminho/para/script.sh &`
 
+Enviar ficheiros do PC para a VM:  
+`scp -P (porta) '/caminho/do/ficheiro.sh' teste@127.0.0.1:/para/onde/ `
+
 
 
 # Script de Monitoramento
