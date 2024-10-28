@@ -110,6 +110,9 @@ Para editar o crontab do root:
 Para ligar por SSH:  
 `ssh user@127.0.0.1 -p (porta)`
 
+Comando do crontab para executar o script de 10 em 10 minutos desde que ligamos a VM:  
+`@reboot /caminho/para/script.sh &`
+
 
 
 # Script de Monitoramento
