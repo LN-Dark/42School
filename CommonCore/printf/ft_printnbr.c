@@ -13,12 +13,12 @@
 
 int	ft_printnbr(int nb)
 {
+	char	*nbtostr;
 	int		lenght;
-	char	*nbstr;
 
 	lenght = 0;
-	nbstr = ft_itoa(nb);
-	lenght = ft_printstr(nbstr);
-	free(nbstr);
+	nbtostr = ft_itoa(nb);
+	lenght = ft_printstr(nbtostr);
+	free(nbtostr);
 	return (lenght);
 }

@@ -6,13 +6,13 @@
 /*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 09:23:23 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/10/29 13:00:33 by pbranco-         ###   ########.fr       */
+/*   Updated: 2024/10/29 13:50:01 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_form(va_list args, const char form)
+int	ft_form(va_list args, const char form)
 {
 	int	length;
 

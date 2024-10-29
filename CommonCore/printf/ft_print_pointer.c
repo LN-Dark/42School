@@ -6,20 +6,20 @@
 /*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 10:01:05 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/10/29 11:07:21 by pbranco-         ###   ########.fr       */
+/*   Updated: 2024/10/29 13:49:34 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
 
-int	ft_print_ptr(unsigned long pointer)
+int	ft_print_pointer(unsigned long pointer)
 {
 	int	lenght;
 
 	lenght = 0;
 	if (!pointer)
 	{
-		lenght = ft_putstr_fd("(null)", 1);
-		return(6);
+		ft_putstr_fd("(null)", 1);
+		return (6);
 	}
 	else
 	{

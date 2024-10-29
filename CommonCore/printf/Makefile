@@ -6,7 +6,7 @@
 #    By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/29 13:02:14 by pbranco-          #+#    #+#              #
-#    Updated: 2024/10/29 13:54:43 by pbranco-         ###   ########.fr        #
+#    Updated: 2024/10/29 15:02:08 by pbranco-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,30 +19,34 @@ SRCS	= 	ft_print_pointer.c \
 			ft_printstr.c \
 			ft_put_hex.c \
 			ft_uitoa.c \
-		
-OBJS			= ${SRCS:.c=.o}
-CC				= cc
-RM				= rm -f
-CFLAGS			= -Wall -Wextra -Werror
-LIBFT			= libft
+			ft_putchar_fd.c \
+			ft_putstr_fd.c \
+			ft_itoa.c \
+			ft_strdup.c \
+			ft_strlen.c
 
-NAME			= libftprintf.a
+OBJS	= ${SRCS:.c=.o}
+CC		= cc
+RM		= rm -f
+CFLAGS	= -Wall -Wextra -Werror
 
-all:			$(NAME)
+NAME	= libftprintf.a
 
-$(NAME):		$(OBJS)
-				@make -C $(LIBFT)
-				@cp libft/libft.h .
-				@mv libft.a $(NAME)
-				ar rcs $(NAME) $(OBJS) @$(CC) $(CFLAGS) -c $< -o $@
+all:		$(NAME)
+
+$(NAME):	$(OBJS)
+				ar rcs $(NAME) $(OBJS)
+
+%.o: %.c
+				$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 				$(RM) $(OBJS)
 
-fclean:			clean
+fclean:		clean
 				$(RM) $(NAME)
-				$(RM) $(LIBFT)/libft.a
 
-re:				fclean $(NAME) $(LIBFT)
+re:			fclean all
 
-.PHONY:			all clean fclean re
+.PHONY:		all clean fclean re
+

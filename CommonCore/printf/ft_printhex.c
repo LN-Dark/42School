@@ -14,7 +14,7 @@
 
 int	ft_print_hex(unsigned int nb, const char form)
 {
-	if(nb == 0)
+	if (nb == 0)
 		return (ft_printc('0'));
 	else
 		return (ft_put_hex(nb, form));

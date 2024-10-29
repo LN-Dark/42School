@@ -6,10 +6,10 @@
 /*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 10:42:05 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/10/16 16:38:03 by pbranco-         ###   ########.fr       */
+/*   Updated: 2024/10/29 14:28:52 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
+#include "ft_printf.h"
 
 static unsigned int	ft_nb_size(int nb)
 {

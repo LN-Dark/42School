@@ -14,8 +14,8 @@
 
 int	ft_print_unsigned(unsigned int n)
 {
-	int	lenght;
-	char *nb;
+	char	*nb;
+	int		lenght;
 
 	lenght = 0;
 	if (n == 0)

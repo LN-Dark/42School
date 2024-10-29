@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pbranco- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/15 09:18:23 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/10/15 09:18:24 by pbranco-         ###   ########.fr       */
+/*   Created: 2024/10/15 09:58:19 by pbranco-          #+#    #+#             */
+/*   Updated: 2024/10/29 14:27:02 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-int	ft_toupper(int i)
+void	ft_putstr_fd(char *s, int fd)
 {
-	if (i >= 97 && i <= 122)
-	{
-		return (i - 32);
-	}
-	return (i);
+	write(fd, s, ft_strlen(s));
 }
