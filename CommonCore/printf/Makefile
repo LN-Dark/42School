@@ -11,19 +11,19 @@
 # **************************************************************************** #
 
 SRCS	= 	ft_print_pointer.c \
-			ft_print_unsigned.c \
-			ft_printc.c \
-			ft_printf.c \
-			ft_printhex.c \
-			ft_printnbr.c \
-			ft_printstr.c \
-			ft_put_hex.c \
-			ft_uitoa.c \
-			ft_putchar_fd.c \
-			ft_putstr_fd.c \
-			ft_itoa.c \
-			ft_strdup.c \
-			ft_strlen.c
+		ft_print_unsigned.c \
+		ft_printc.c \
+		ft_printf.c \
+		ft_printhex.c \
+		ft_printnbr.c \
+		ft_printstr.c \
+		ft_put_hex.c \
+		ft_uitoa.c \
+		ft_putchar_fd.c \
+		ft_putstr_fd.c \
+		ft_itoa.c \
+		ft_strdup.c \
+		ft_strlen.c
 
 OBJS	= ${SRCS:.c=.o}
 CC		= cc
