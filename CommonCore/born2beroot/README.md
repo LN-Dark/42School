@@ -107,6 +107,9 @@ Para mostrar as partições:
 Para editar o crontab do root:  
 `sudo crontab -u root -e`
 
+Verificar o status do SUDO:  
+`sudo -l`
+
 Para ligar por SSH:  
 `ssh user@127.0.0.1 -p (porta)`
 
