@@ -6,7 +6,7 @@
 #    By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/29 13:02:14 by pbranco-          #+#    #+#              #
-#    Updated: 2024/10/29 13:08:26 by pbranco-         ###   ########.fr        #
+#    Updated: 2024/10/29 13:54:43 by pbranco-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,18 +23,18 @@ SRCS	= 	ft_print_pointer.c \
 OBJS			= ${SRCS:.c=.o}
 CC				= cc
 RM				= rm -f
-CFLAGS			= -Wall -Wextra -Werror -I
+CFLAGS			= -Wall -Wextra -Werror
 LIBFT			= libft
 
-NAME			= libft.a
+NAME			= libftprintf.a
 
 all:			$(NAME)
 
 $(NAME):		$(OBJS)
 				@make -C $(LIBFT)
-				@cp libft/libft.a .
+				@cp libft/libft.h .
 				@mv libft.a $(NAME)
-				ar rcs $(NAME) $(OBJS)
+				ar rcs $(NAME) $(OBJS) @$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 				$(RM) $(OBJS)
@@ -43,6 +43,6 @@ fclean:			clean
 				$(RM) $(NAME)
 				$(RM) $(LIBFT)/libft.a
 
-re:				fclean $(NAME)
+re:				fclean $(NAME) $(LIBFT)
 
-.PHONY:			all clean fclean re bonus
+.PHONY:			all clean fclean re
