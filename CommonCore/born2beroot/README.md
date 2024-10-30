@@ -1,131 +1,90 @@
-Ao seguir o guia criem a VM com 8GB e não com 12GB como diz, desta forma as partições ficam com o tamanho que tem no print do subject e não tem problemas.
+# Setup Guide and Distribution Comparison
 
-Guide -> https://github.com/gemartin99/Born2beroot-Tutorial
+This repository contains instructions for setting up a VM, a comparison between Rocky Linux and Debian, security configurations, package management, and a monitoring script.
 
-Debian ISO -> https://cdimage.debian.org/mirror/cdimage/archive/10.10.0/amd64/iso-cd/debian-10.10.0-amd64-netinst.iso
+## Creating the VM
 
+When following the guide, create the VM with **8GB** instead of **12GB** as mentioned; this way, the partitions will have the correct size shown in the subject screenshot, avoiding issues.
 
-# Comparação entre Rocky Linux e Debian
-
-## Rocky Linux
-- **Base:** 
-  - Baseado no Red Hat Enterprise Linux (RHEL), focado em fornecer uma alternativa gratuita e de código aberto para ambientes empresariais.
-- **Gerenciamento de Pacotes:** 
-  - Usa `yum` ou `dnf` para gerenciamento de pacotes, com pacotes no formato RPM.
-- **Público-alvo:** 
-  - Voltado principalmente para usuários empresariais e servidores que buscam robustez e confiabilidade.
-- **Suporte:** 
-  - Suportado pela comunidade e por organizações que buscam uma alternativa ao CentOS.
-- **Software:** 
-  - Focado em software empresarial e estável disponível nos repositórios do RHEL.
+- **Guide:** [Born2beroot-Tutorial](https://github.com/gemartin99/Born2beroot-Tutorial)
+- **Debian ISO:** [Debian 10.10.0 Netinst](https://cdimage.debian.org/mirror/cdimage/archive/10.10.0/amd64/iso-cd/debian-10.10.0-amd64-netinst.iso)
 
 ---
 
-## Debian
-- **Base:** 
-  - Um projeto comunitário que visa ser uma distribuição universal, conhecida por sua estabilidade e liberdade de software.
-- **Gerenciamento de Pacotes:** 
-  - Usa `apt` para gerenciamento de pacotes, com pacotes no formato DEB.
-- **Público-alvo:** 
-  - Abrange uma ampla gama de usuários, desde entusiastas até servidores e ambientes de produção.
-- **Suporte:** 
-  - Tem uma comunidade muito ativa e é conhecido por seu forte compromisso com a liberdade de software.
-- **Software:** 
-  - Oferece uma vasta gama de pacotes, incluindo opções de software livre e não livre, com foco em inclusão e diversidade.
+## Comparison between Rocky Linux and Debian
+
+### Rocky Linux
+- **Base:** Based on Red Hat Enterprise Linux (RHEL), focused on providing a free and open-source alternative for enterprise environments.
+- **Package Management:** Uses `yum` or `dnf` for package management, with packages in RPM format.
+- **Target Audience:** Primarily aimed at enterprise users and servers seeking robustness and reliability.
+- **Support:** Supported by the community and organizations seeking an alternative to CentOS.
+- **Software:** Focused on enterprise software and stable versions available in RHEL repositories.
+
+### Debian
+- **Base:** A community project aimed at being a universal distribution, known for its stability and software freedom.
+- **Package Management:** Uses `apt` for package management, with packages in DEB format.
+- **Target Audience:** Covers a wide range of users, from enthusiasts to servers and production environments.
+- **Support:** Has a very active community, known for its strong commitment to software freedom.
+- **Software:** Offers a vast range of packages, including both free and non-free software options.
 
 ---
 
-# Configurações de Segurança e Ferramentas
+## Security Configurations and Tools
 
-## secure_path
-- **Descrição:** Especifica um caminho seguro onde o `sudo` deve procurar por executáveis.
-- **Conteúdo:** Lista de diretórios, incluindo:
-  - `/usr/local/sbin`: Binários de administração local.
-  - `/usr/local/bin`: Binários de aplicativos locais.
-  - `/usr/sbin`: Binários de administração do sistema.
-  - `/usr/bin`: Binários padrão do sistema.
-  - `/sbin`: Binários essenciais do sistema.
-  - `/bin`: Binários essenciais.
-  - `/snap/bin`: Binários instalados via Snap.
+### secure_path
+- **Description:** Specifies a secure path where `sudo` should look for executables.
+- **Content:** List of directories such as `/usr/local/sbin`, `/usr/local/bin`, `/usr/sbin`, etc.
 
-## AppArmor
-- **Descrição:** Sistema de controle de acesso baseado em políticas para Linux.
-- **Função:** Protege o sistema operacional e os aplicativos de comportamentos indesejados ou maliciosos, restringindo permissões e acesso a arquivos e recursos do sistema.
+### AppArmor
+- **Description:** Policy-based access control system for Linux.
+- **Function:** Protects the operating system and applications from unwanted behaviors.
 
-## LVM (Logical Volume Manager)
-- **Descrição:** Ferramenta de gerenciamento de volumes lógicos em sistemas Linux.
-- **Benefícios:** Permite gerenciar de forma flexível a alocação de espaço em disco, facilitando a criação, redimensionamento e gerenciamento de volumes de armazenamento.
+### LVM (Logical Volume Manager)
+- **Description:** Tool for managing logical volumes in Linux systems.
+- **Benefits:** Allows flexible disk space allocation management.
 
-## UFW (Uncomplicated Firewall)
-- **Descrição:** Ferramenta de gerenciamento de firewall que facilita a configuração de regras de iptables em sistemas Linux.
-- **Popularidade:** Especialmente popular em distribuições baseadas em Debian e Ubuntu por sua simplicidade.
+### UFW (Uncomplicated Firewall)
+- **Description:** Firewall management tool that simplifies the configuration of iptables rules.
+- **Popularity:** Especially popular in Debian and Ubuntu-based distributions for its simplicity.
 
 ---
 
-# Gerenciamento de Pacotes: `apt` vs. `aptitude`
+## Package Management: `apt` vs. `aptitude`
 
-| **Aspecto**        | **apt**                                           | **aptitude**                                         |
+| **Aspect**        | **apt**                                           | **aptitude**                                         |
 |--------------------|--------------------------------------------------|-----------------------------------------------------|
-| **Interface**      | Mais amigável, saída mais limpa                  | Mais técnica, voltada para usuários avançados       |
-| **Funcionalidades**| Resolve dependências de forma eficaz              | Algoritmo avançado, sugere soluções para conflitos  |
-| **Histórico**      | Não mantém histórico, a menos que redirecione     | Mantém histórico de comandos, útil para desfazer    |
-| **Comandos**       | Ex.: `apt install <pacote>`                      | Ex.: similar, mas com mais opções de interação      |
-| **Sugestões**      | Concentra-se em pacotes disponíveis               | Sugere pacotes alternativos ou versões diferentes    |
+| **Interface**      | More user-friendly, cleaner output               | More technical, aimed at advanced users             |
+| **Features**       | Effectively resolves dependencies                 | Advanced algorithm, suggests solutions for conflicts |
+| **History**        | Does not maintain history unless redirected      | Maintains command history, useful for undoing       |
+| **Commands**       | Ex.: `apt install <package>`                     | Ex.: similar, but with more interaction options      |
+| **Suggestions**    | Focuses on available packages                     | Suggests alternative packages or different versions  |
 
 ---
 
-# Instruções de Configuração
+## Configuration Instructions
 
-Para criar um grupo, use o seguinte comando:  
-`sudo groupadd (grupo)`
+- **Create a group:** `sudo groupadd (group)`
+- **Check existing groups:** `getent group`
+- **List all users:** `cut -d: -f1 /etc/passwd`
+- **Create a new user and add to a group:** `sudo adduser (user) (group)`
+- **Allow port 4242:** `sudo ufw allow 4242`
+- **Remove a port:** `sudo ufw status numbered` and `sudo ufw delete (port)`
+- **Check SSH status:** `sudo service ssh status`
+- **Change the hostname:** `sudo nano /etc/hostname`
+- **Show partitions:** `lsblk`
+- **Edit root's crontab:** `sudo crontab -u root -e`
+- **Check SUDO status:** `sudo -l`
+- **Connect via SSH:** `ssh user@127.0.0.1 -p (port)`
+- **Crontab command:** `@reboot /path/to/script.sh &`
+- **Send files:** `scp -P (port) '/path/to/file.sh' test@127.0.0.1:/destination/`
 
-Para verificar os grupos existentes:  
-`getent group`
+---
 
-Para listar todos os usuários:  
-`cut -d: -f1 /etc/passwd`
+## Monitoring Script
 
-Para criar um novo usuário e adicioná-lo a um grupo:  
-`sudo adduser (user) (grupo)`
+This script collects and displays information about the system, including architecture, CPU usage, memory, disk, and network connections.
 
-Para permitir a porta 4242:  
-`sudo ufw allow 4242`
-
-Para apagar uma porta:  
-`sudo ufw status numbered`  
-`sudo ufw delete (porta)`
-
-Para verificar o status do SSH:  
-`sudo service ssh status`
-
-Para mudar o hostname:  
-`sudo nano /etc/hostname`
-
-Para mostrar as partições:  
-`lsblk`
-
-Para editar o crontab do root:  
-`sudo crontab -u root -e`
-
-Verificar o status do SUDO:  
-`sudo -l`
-
-Para ligar por SSH:  
-`ssh user@127.0.0.1 -p (porta)`
-
-Comando do crontab para executar o script de 10 em 10 minutos desde que ligamos a VM:  
-`@reboot /caminho/para/script.sh &`
-
-Enviar ficheiros do PC para a VM:  
-`scp -P (porta) '/caminho/do/ficheiro.sh' teste@127.0.0.1:/para/onde/ `
-
-
-
-# Script de Monitoramento
-
-Este script coleta e exibe informações sobre o sistema, incluindo arquitetura, uso de CPU, memória, disco, conexões de rede e muito mais.
-
-## Código do Script
+### Script Code
 
 ```bash
 #!/bin/bash
@@ -134,8 +93,7 @@ while true; do
 # ARCH
 arch=$(uname -a)
 
-# uname -a: Este comando retorna informações detalhadas sobre o sistema, incluindo o nome do kernel, a versão, a arquitetura e mais. O resultado é armazenado na variável arch.
-
+# uname -a: This command returns detailed information about the system, including the kernel name, version, architecture, and more. The result is stored in the variable arch.
 
 # CPU PHYSICAL
 cpuf=$(grep "physical id" /proc/cpuinfo | wc -l)
@@ -143,76 +101,76 @@ cpuf=$(grep "physical id" /proc/cpuinfo | wc -l)
 # CPU VIRTUAL
 cpuv=$(grep "processor" /proc/cpuinfo | wc -l)
 
-# /proc/cpuinfo: Este arquivo contém informações sobre a CPU.
-# grep "physical id": Conta quantos IDs físicos de CPU existem, que representa CPUs físicas.
-# grep "processor": Conta quantos processadores lógicos (ou virtuais) estão presentes.
+# /proc/cpuinfo: This file contains information about the CPU.
+# grep "physical id": Counts how many physical CPU IDs exist, which represents physical CPUs.
+# grep "processor": Counts how many logical (or virtual) processors are present.
 
 # RAM
 ram_total=$(free --mega | awk '$1 == "Mem:" {print $2}')
 ram_use=$(free --mega | awk '$1 == "Mem:" {print $3}')
 ram_percent=$(free --mega | awk '$1 == "Mem:" {printf("%.2f"), $3/$2*100}')
 
-# free --mega: Mostra informações sobre o uso de memória em megabytes.
-# $1 == "Mem:": Verifica se a linha corresponde à memória total.
-# print $2: Retorna a quantidade total de RAM.
-# print $3: Retorna a quantidade de RAM em uso.
-# Cálculo de porcentagem: Usa a fórmula para calcular a porcentagem de RAM em uso
+# free --mega: Displays memory usage information in megabytes.
+# $1 == "Mem:": Checks if the line corresponds to total memory.
+# print $2: Returns the total amount of RAM.
+# print $3: Returns the amount of RAM in use.
+# Percentage calculation: Uses the formula to calculate the percentage of RAM in use.
 
 # DISK
 disk_total=$(df -m | grep "/dev/" | grep -v "/boot" | awk '{disk_t += $2} END {printf ("%.1fGb\n"), disk_t/1024}')
 disk_use=$(df -m | grep "/dev/" | grep -v "/boot" | awk '{disk_u += $3} END {print disk_u}')
 disk_percent=$(df -m | grep "/dev/" | grep -v "/boot" | awk '{disk_u += $3} {disk_t+= $2} END {printf("%d"), disk_u/disk_t*100}')
 
-# df -m: Mostra informações sobre o uso de disco em megabytes.
-# grep "/dev/": Filtra as linhas que contêm dispositivos de disco.
-# grep -v "/boot": Exclui a partição /boot.
-# Cálculo de total e uso: Acumula os valores de uso e total para calcular a porcentagem.
+# df -m: Displays disk usage information in megabytes.
+# grep "/dev/": Filters lines that contain disk devices.
+# grep -v "/boot": Excludes the /boot partition.
+# Total and usage calculation: Accumulates usage and total values to calculate the percentage.
 
 # CPU LOAD
 cpul=$(vmstat 1 2 | tail -1 | awk '{printf $15}')
 cpu_op=$(expr 100 - $cpul)
 cpu_fin=$(printf "%.1f" $cpu_op)
 
-# vmstat 1 2: Coleta informações sobre o sistema, incluindo a carga da CPU. A primeira execução é descartada.
-# $15: O valor na coluna 15 corresponde ao tempo ocioso da CPU.
-# 100 - $cpul: Calcula a carga da CPU subtraindo o tempo ocioso de 100%.
+# vmstat 1 2: Collects system information, including CPU load. The first execution is discarded.
+# $15: The value in column 15 corresponds to the CPU idle time.
+# 100 - $cpul: Calculates CPU load by subtracting idle time from 100%.
 
 # LAST BOOT
 lb=$(who -b | awk '$1 == "system" {print $3 " " $4}')
 
-# who -b: Mostra a data e a hora do último boot do sistema. O comando awk filtra a saída para obter somente a data e hora.
+# who -b: Shows the date and time of the last system boot. The awk command filters the output to get only the date and time.
 
 # LVM USE
 lvmu=$(if [ $(lsblk | grep "lvm" | wc -l) -gt 0 ]; then echo yes; else echo no; fi)
 
-# lsblk: Lista os dispositivos de bloco.
-# Verifica se existe alguma entrada relacionada ao LVM e armazena "yes" ou "no" na variável lvmu.
+# lsblk: Lists block devices.
+# Checks if there is any entry related to LVM and stores "yes" or "no" in the variable lvmu.
 
 # TCP CONNECTIONS
 tcpc=$(ss -ta | grep ESTAB | wc -l)
 
-# ss -ta: Mostra informações sobre conexões TCP.
-# grep ESTAB: Filtra para contar apenas as conexões estabelecidas.
+# ss -ta: Shows information about TCP connections.
+# grep ESTAB: Filters to count only established connections.
 
 # USER LOG
 ulog=$(users | wc -w)
 
-# users: Lista os usuários atualmente logados.
-# wc -w: Conta o número de palavras, que corresponde ao número de usuários.
+# users: Lists currently logged-in users.
+# wc -w: Counts the number of words, corresponding to the number of users.
 
 # NETWORK
 ip=$(hostname -I)
 mac=$(ip link | grep "link/ether" | awk '{print $2}')
 
-# hostname -I: Retorna o endereço IP da máquina.
-# ip link: Lista informações sobre interfaces de rede.
-# grep "link/ether": Filtra a linha que contém o endereço MAC.
+# hostname -I: Returns the machine's IP address.
+# ip link: Lists information about network interfaces.
+# grep "link/ether": Filters the line that contains the MAC address.
 
 # SUDO
 cmnd=$(journalctl _COMM=sudo | grep COMMAND | wc -l)
 
-# journalctl: Visualiza logs do sistema.
-# Filtra os logs relacionados a comandos executados com sudo e conta quantos foram executados.
+# journalctl: Views system logs.
+# Filters logs related to commands executed with sudo and counts how many were executed.
 
 wall "	Architecture: $arch
 	CPU physical: $cpuf
@@ -227,8 +185,7 @@ wall "	Architecture: $arch
 	Network: IP $ip ($mac)
 	Sudo: $cmnd cmd"
 
-# wall: Envia uma mensagem para todos os usuários logados. As informações coletadas são formatadas e exibidas.
+# wall: Sends a message to all logged-in users. The collected information is formatted and displayed.
 sleep 600
 done
-
 
