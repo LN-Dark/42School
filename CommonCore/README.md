@@ -1,40 +1,37 @@
-# Piscine at 42 School
+# CommonCore
 
-Welcome to the **Piscine** repository! This project serves as a comprehensive guide and resource hub for the Piscine program at **42 School**. The Piscine is an intensive coding bootcamp designed to introduce students to programming fundamentals in a collaborative environment.
+Welcome to **CommonCore** at **42 School**! This foundational curriculum is designed to equip you with essential programming skills and computer science principles.
 
 ## Overview
 
-The Piscine is a month-long program where participants immerse themselves in coding, problem-solving, and peer learning. The experience is designed to build a strong foundation in programming, preparing students for future projects at 42 School.
+**CommonCore** is a comprehensive program that focuses on developing key concepts and skills vital for your journey in programming. Throughout the curriculum, you’ll engage in a series of exercises and projects that will reinforce your knowledge and prepare you for advanced coursework.
 
 ## Objectives
 
-During the Piscine, students will:
-- Learn the basics of programming using C and other languages.
-- Develop critical thinking and problem-solving skills.
-- Collaborate with peers on coding challenges and projects.
-- Gain hands-on experience through real-world coding scenarios.
+During the CommonCore program, you will:
+- Gain a solid understanding of fundamental programming concepts in various languages.
+- Solve coding challenges that mimic real-world scenarios.
+- Collaborate with peers to enhance your problem-solving skills.
+- Prepare for future projects by refining your coding techniques and workflows.
 
 ## Structure
 
-The Piscine consists of several key components:
-
-1. **Coding Challenges:** A series of tasks that challenge students to apply their knowledge and enhance their coding skills.
-2. **Projects:** Individual and group projects that mimic real-world programming situations, fostering collaboration and creativity.
-3. **Peer Reviews:** Evaluation of peers’ code, promoting constructive feedback and learning from one another.
-4. **Workshops and Seminars:** Sessions focused on specific topics, languages, and tools to deepen understanding.
+The CommonCore program consists of:
+1. **Core Exercises:** Complete tasks designed to solidify your understanding of essential programming concepts.
+2. **Mini Projects:** Work on projects that emphasize practical application and teamwork.
+3. **Peer Reviews:** Engage in reviewing peers’ work to gain insights and improve your coding standards.
 
 ## Getting Started
 
-To make the most of your Piscine experience, consider the following tips:
-
-- **Familiarize Yourself with the Environment:** Get comfortable with the 42 coding environment and tools.
-- **Review Key Concepts:** Brush up on C programming basics and essential algorithms.
-- **Engage with Peers:** Collaborate and communicate with fellow students for shared learning.
-- **Manage Your Time:** Prioritize tasks and projects to maximize your productivity.
+To maximize your experience in CommonCore:
+- Familiarize yourself with the **42 coding environment**.
+- Review the **basics of programming languages** covered in the curriculum.
+- Actively engage with your peers for collaborative learning.
+- Manage your time effectively to complete exercises on schedule.
 
 ## Contribution
 
-We welcome contributions to this repository! If you have suggestions, improvements, or additional resources, feel free to submit a pull request or open an issue.
+If you have suggestions for this README or want to contribute, feel free to submit a pull request or open an issue.
 
 ## License
 
@@ -42,5 +39,5 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ---
 
-Good luck with your coding journey at 42 School!
+Good luck, and enjoy your learning journey at 42 School!
 

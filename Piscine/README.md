@@ -1,33 +1,33 @@
-# Piscine Reloaded
+# Piscine
 
-Welcome to **Piscine Reloaded** at **42 School**! This intensive 5-day bootcamp is designed to refresh your programming skills and prepare you for the Common Core curriculum.
+Welcome to **Piscine** at **42 School**! This intensive coding bootcamp is designed to immerse you in programming and prepare you for your journey through the 42 curriculum.
 
 ## Overview
 
-**Piscine Reloaded** is a condensed program aimed at revisiting key concepts and skills acquired during the original Piscine. Throughout the week, you’ll engage in a series of challenges and projects that will reinforce your knowledge and enhance your readiness for upcoming coursework.
+**Piscine** is a rigorous 4-week program focused on developing your coding skills and problem-solving abilities. During this period, you will engage in a series of challenges and projects that will lay the groundwork for your future studies.
 
 ## Objectives
 
-During these 5 days, you will:
-- Refresh your understanding of fundamental programming concepts in C and other languages.
-- Work on coding challenges that simulate real-world scenarios.
-- Collaborate with peers to enhance problem-solving skills.
-- Prepare for the Common Core by honing your coding techniques and workflows.
+During Piscine, you will:
+- Develop a strong foundation in programming concepts, primarily in C.
+- Tackle coding challenges that enhance your analytical thinking.
+- Collaborate with peers to improve teamwork and communication skills.
+- Prepare for the upcoming Common Core curriculum by building essential coding practices.
 
 ## Structure
 
-The Piscine Reloaded program consists of:
-1. **Daily Coding Challenges:** Tackle tasks designed to reinforce core programming concepts.
-2. **Mini Projects:** Complete projects that emphasize practical application and collaboration.
-3. **Peer Reviews:** Participate in evaluating peers’ work to gain different perspectives and improve your own coding standards.
+The Piscine program consists of:
+1. **Daily Coding Challenges:** Complete tasks designed to reinforce your understanding of programming fundamentals.
+2. **Project Work:** Collaborate on projects that emphasize practical application and teamwork.
+3. **Peer Feedback:** Participate in peer reviews to gain insights and enhance your coding standards.
 
 ## Getting Started
 
-To make the most of Piscine Reloaded:
+To make the most of your Piscine experience:
 - Familiarize yourself with the **42 coding environment**.
-- Review the **C programming language basics**.
-- Engage actively with your peers for collaborative learning.
-- Manage your time effectively to complete challenges on schedule.
+- Brush up on **C programming basics** and other relevant languages.
+- Actively participate in group activities and discussions for collaborative learning.
+- Manage your time effectively to stay on track with challenges and projects.
 
 ## Contribution
 
@@ -39,5 +39,5 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ---
 
-Good luck, and enjoy your week of coding at 42 School!
+Good luck, and enjoy your immersive coding experience at 42 School!
 
