@@ -29,7 +29,6 @@ To make the most of Piscine Reloaded:
 - Engage actively with your peers for collaborative learning.
 - Manage your time effectively to complete challenges on schedule.
 
-
 ## Contribution
 
 If you have suggestions for this README or want to contribute, feel free to submit a pull request or open an issue.
