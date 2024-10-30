@@ -18,8 +18,8 @@ int	ft_print_pointer(unsigned long pointer)
 	lenght = 0;
 	if (!pointer)
 	{
-		ft_putstr_fd("(null)", 1);
-		return (6);
+		ft_putstr_fd("(nil)", 1);
+		return (5);
 	}
 	else
 	{

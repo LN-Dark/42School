@@ -14,18 +14,21 @@
 #include <stdio.h>
 
 int main() {
-    int num = 42;
+    int num = 0;
     unsigned int unum = 12345;
     char *str = "Hello, World!";
     void *ptr = (void*)&num;
+    char *str2;
 
     ft_printf("Decimal: %d\n", num);
-    ft_printf("Integer: %i\n", num);
+    ft_printf("Decimal: %d\n", INT_MAX);
+    ft_printf("Integer: %i\n", -2);
     ft_printf("Unsigned: %u\n", unum);
-    ft_printf("String: %s\n", str);
-    ft_printf("Pointer: %p\n", ptr);
-    ft_printf("Hexadecimal: %x\n", num);
-    ft_printf("Hexadecimal Uppercase: %X\n", num);
+    ft_printf("String: %s\n", "");
+    ft_printf("String: %s\n", NULL);
+    ft_printf("Pointer: %p\n", NULL);
+    ft_printf("Hexadecimal: %x\n", NULL);
+    ft_printf("Hexadecimal Uppercase: %X\n", 16);
 
     return 0;
 }
