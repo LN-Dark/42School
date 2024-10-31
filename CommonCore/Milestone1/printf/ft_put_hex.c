@@ -31,6 +31,7 @@ int	ft_put_hex(unsigned long nb, const char form)
 			ft_putchar_fd(base[nb], 1);
 		else
 			ft_putchar_fd(base_m[nb], 1);
+		result++;
 	}
 	return (result);
 }
