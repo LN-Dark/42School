@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "ft_printf.h"
 
-static unsigned int	ft_nb_size(int nb)
+static unsigned int	ft_nb_size(unsigned int nb)
 {
 	unsigned int	length;
 

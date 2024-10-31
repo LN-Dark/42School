@@ -18,9 +18,9 @@ int	ft_print_unsigned(unsigned int n)
 	int		lenght;
 
 	lenght = 0;
-	if (n == 0)
+	if (n < 0)
 	{
-		lenght = ft_printc('0');
+		lenght = ft_printc(n + 48);
 	}
 	else
 	{
