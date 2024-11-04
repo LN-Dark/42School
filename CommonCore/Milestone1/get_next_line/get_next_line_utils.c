@@ -101,14 +101,3 @@ char	*ft_strjoin(char *s1, char *s2)
 	str[i + j] = '\0';
 	return (str);
 }
-
-void	ft_bzero(void *str, size_t n)
-{
-	unsigned char	*s;
-
-	s = (unsigned char *)str;
-	while (n--)
-	{
-		*s++ = '\0';
-	}
-}

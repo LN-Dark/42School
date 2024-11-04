@@ -24,14 +24,13 @@
 # include <limits.h>
 # include <stdint.h>
 
-int	ft_strnlen(char *str, char c);
-
 char	*ft_get_next_line(int fd);
 char	*ft_free(char *buffer, char *left_c);
-void	*ft_calloc(size_t count, size_t size);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strjoin(char *s1, char *s2);
 char	*ft_strndup(const char *s, int lenght);
 void	ft_bzero(void *str, size_t n);
+void	*ft_calloc(size_t count, size_t size);
+int		ft_strnlen(char *str, char c);
 
 #endif
