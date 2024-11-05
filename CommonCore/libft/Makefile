@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	= 	ft_isalpha.c \
+SRCS	= ft_isalpha.c \
 		ft_isdigit.c \
 		ft_isalnum.c \
 		ft_isascii.c \
@@ -53,37 +53,25 @@ SRCS	= 	ft_isalpha.c \
 		ft_lstnew.c \
 		ft_lstlast.c \
 		ft_lstmap.c \
-		ft_print_pointer.c \
-		ft_print_unsigned.c \
-		ft_printc.c \
-		ft_printf.c \
-		ft_printhex.c \
-		ft_printnbr.c \
-		ft_printstr.c \
-		ft_put_hex.c \
-		ft_uitoa.c \
 		
 OBJS	= ${SRCS:.c=.o}
-CC		= cc
-RM		= rm -f
-CFLAGS	= -Wall -Wextra -Werror
+CC				= cc
+RM				= rm -f
+CFLAGS			= -Wall -Wextra -Werror
 
-NAME	= libft.a
+NAME			= libft.a
 
-all:		$(NAME)
+all:			$(NAME)
 
-$(NAME):	$(OBJS)
+$(NAME):		$(OBJS)
 				ar rcs $(NAME) $(OBJS)
-
-%.o: %.c
-				$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 				$(RM) $(OBJS)
 
-fclean:		clean
+fclean:			clean
 				$(RM) $(NAME)
 
-re:			fclean all
+re:				fclean $(NAME)
 
-.PHONY:		all clean fclean re
+.PHONY:			all clean fclean re bonus

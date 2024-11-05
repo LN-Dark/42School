@@ -68,21 +68,6 @@ char	*ft_strdup(const char *s);
 void	ft_bzero(void *str, size_t n);
 void	*ft_calloc(size_t count, size_t size);
 
-char	*ft_uitoa(unsigned int n);
-char	*ft_itoa(int n);
-char	*ft_strdup(const char *s);
-int		ft_printf(const char *format, ...);
-int		ft_printc(int c);
-int		ft_printstr(char *str);
-int		ft_put_hex(unsigned long nb, const char form);
-int		ft_print_pointer(unsigned long pointer);
-int		ft_printnbr(int nb);
-int		ft_print_unsigned(unsigned int n);
-int		ft_print_hex(unsigned int nb, const char form);
-int		ft_strlen(const char *str);
-void	ft_putchar_fd(char c, int fd);
-void	ft_putstr_fd(char *s, int fd);
-
 void	ft_lstadd_front(t_list **lst, t_list *new);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstclear(t_list **lst, void (*del)(void *));

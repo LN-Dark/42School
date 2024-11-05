@@ -13,13 +13,14 @@
 
 int	ft_put_hex(unsigned long nb, const char form)
 {
-	char	*base_m;
 	char	*base;
 	int		result;
 
 	result = 0;
-	base = "0123456789abcdef";
-	base_m = "0123456789ABCDEF";
+	if (form == 'x')
+		base = "0123456789abcdef";
+	else
+		base = "0123456789ABCDEF";
 	if (nb >= 16)
 	{
 		result += ft_put_hex(nb / 16, form);
@@ -30,7 +31,7 @@ int	ft_put_hex(unsigned long nb, const char form)
 		if (form == 'x')
 			ft_putchar_fd(base[nb], 1);
 		else
-			ft_putchar_fd(base_m[nb], 1);
+			ft_putchar_fd(base[nb], 1);
 		result++;
 	}
 	return (result);

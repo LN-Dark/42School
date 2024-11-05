@@ -5,11 +5,10 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/04 10:38:14 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/11/04 11:03:22 by pbranco-         ###   ########.fr       */
+/*   Created: 2024/11/04 10:42:20 by pbranco-          #+#    #+#             */
+/*   Updated: 2024/11/05 11:37:47 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void(*del)(void *))
