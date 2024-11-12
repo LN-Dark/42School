@@ -6,7 +6,7 @@
 /*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 09:44:51 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/11/12 09:05:31 by pbranco-         ###   ########.fr       */
+/*   Updated: 2024/11/12 11:01:57 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,17 +32,17 @@ char	*ft_read(int fd, char *temp)
 	int		indexreaded;
 
 	indexreaded = 1;
-	while (indexreaded > 0)
+	while (indexreaded > 0 && ft_strichr(temp, '\n') <= 0)
 	{
 		readed = ft_calloc((BUFFER_SIZE + 1), sizeof(char));
 		if (!readed)
 			return (NULL);
 		indexreaded = read(fd, readed, BUFFER_SIZE);
 		if (indexreaded == -1)
-			return (free(readed), NULL);
+			return (free(readed), free(temp), NULL);
 		if (indexreaded == 0)
 			return (free(readed), temp);
-		readed[BUFFER_SIZE] = '\0';
+		readed[indexreaded] = '\0';
 		temp = ft_strjoin(temp, readed);
 		free(readed);
 	}
@@ -81,8 +81,7 @@ char	*get_next_line(int fd)
 		return (NULL);
 	if (!temp)
 		temp = NULL;
-	if (ft_strnlen(temp, 0, 1) <= 0)
-		temp = ft_read(fd, temp);
+	temp = ft_read(fd, temp);
 	if (ft_strnlen(temp, 0, 1) == 0)
 		return (free(temp), NULL);
 	if (ft_strichr(temp, '\n') >= 0)
