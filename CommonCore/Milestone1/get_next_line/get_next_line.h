@@ -6,7 +6,7 @@
 /*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 09:45:16 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/11/08 14:27:42 by pbranco-         ###   ########.fr       */
+/*   Updated: 2024/11/11 16:04:28 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@
 
 char	*get_next_line(int fd);
 char	*ft_strjoin(char *s1, char *s2);
-int	ft_strlen(const char *str);
 char	*ft_strndup(const char *s, int i);
-int	ft_strichr(const char *s, int c);
-char	*ft_read(int fd, char *temp, int *indexreaded);
+char	*ft_read(int fd, char *temp);
 char	*ft_maketemp(char *temp);
-int	ft_strnlen(const char *str, char c);
-char	*ft_strchr(char *str, char c);
 char	*ft_strdup(char *src);
+char	*ft_calloc(size_t count, size_t size);
+int		ft_strichr(const char *s, int c);
+int		ft_strnlen(const char *str, char c, int type);
+void	ft_bzero(void *str, size_t n);
 
 #endif

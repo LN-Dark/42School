@@ -6,7 +6,7 @@
 /*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 15:05:25 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/11/08 16:00:51 by pbranco-         ###   ########.fr       */
+/*   Updated: 2024/11/11 09:00:11 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ int main(int argc, char **argv) {
     }
 
     while ((line = get_next_line(fd)) != NULL) {
-         printf("%d\n\n", ft_strlen(line));
         printf("%s", line);
         free(line); // Libere a memória alocada para a linha
     }
