@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/04 09:44:51 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/11/12 16:26:42 by pbranco-         ###   ########.fr       */
+/*   Created: 2024/11/12 11:36:57 by pbranco-          #+#    #+#             */
+/*   Updated: 2024/11/12 16:26:33 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 int	ft_strichr(const char *s, int c)
 {
@@ -79,28 +79,28 @@ char	*ft_maketemp(char *temp)
 
 char	*get_next_line(int fd)
 {
-	static char	*temp;
+	static char	*temp[MAX_FD];
 	char		*line;
 	char		*temp2;
 
 	line = NULL;
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	if (!temp)
-		temp = NULL;
-	temp = ft_read(fd, temp);
-	if (!temp)
+	if (!temp[fd])
+		temp[fd] = NULL;
+	temp[fd] = ft_read(fd, temp[fd]);
+	if (!temp[fd])
 		return (NULL);
-	if (ft_strnlen(temp, 0, 1) == 0)
+	if (ft_strnlen(temp[fd], 0, 1) == 0)
 		return (NULL);
-	if (ft_strichr(temp, '\n') >= 0)
-		temp2 = ft_strndup(temp, ft_strichr(temp, '\n') + 1);
-	else if (ft_strichr(temp, '\0') >= 0)
-		temp2 = ft_strndup(temp, ft_strichr(temp, '\0'));
+	if (ft_strichr(temp[fd], '\n') >= 0)
+		temp2 = ft_strndup(temp[fd], ft_strichr(temp[fd], '\n') + 1);
+	else if (ft_strichr(temp[fd], '\0') >= 0)
+		temp2 = ft_strndup(temp[fd], ft_strichr(temp[fd], '\0'));
 	else
 		return (NULL);
 	line = ft_strjoin(line, temp2);
-	temp = ft_maketemp(temp);
+	temp[fd] = ft_maketemp(temp[fd]);
 	if (!line)
 		return (ft_free(&temp2), NULL);
 	return (ft_free(&temp2), line);
