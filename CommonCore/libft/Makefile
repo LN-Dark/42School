@@ -53,7 +53,9 @@ SRCS	= ft_isalpha.c \
 		ft_lstnew.c \
 		ft_lstlast.c \
 		ft_lstmap.c \
-		
+		get_next_line.c \
+		get_next_line_utils.c \
+
 OBJS	= ${SRCS:.c=.o}
 CC				= cc
 RM				= rm -f
