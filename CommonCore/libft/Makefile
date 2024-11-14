@@ -55,6 +55,16 @@ SRCS	= ft_isalpha.c \
 		ft_lstmap.c \
 		get_next_line.c \
 		get_next_line_utils.c \
+		ft_print_pointer.c \
+		ft_print_unsigned.c \
+		ft_printc.c \
+		ft_printf.c \
+		ft_printhex.c \
+		ft_printnbr.c \
+		ft_printstr.c \
+		ft_put_hex.c \
+		ft_uitoa.c \
+		ft_strcjoin.c \
 
 OBJS	= ${SRCS:.c=.o}
 CC				= cc

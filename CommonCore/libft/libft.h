@@ -6,7 +6,7 @@
 /*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 08:58:45 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/11/14 11:29:59 by pbranco-         ###   ########.fr       */
+/*   Updated: 2024/11/14 14:26:47 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ char	*ft_calloc_gnl(size_t count, size_t size);
 char	*ft_strjoin_gnl(char *s1, char *s2);
 char	*ft_strndup_gnl(const char *s, int lenght);
 char	*ft_strdup_gnl(char *src);
+char	*ft_strcjoin(char *str, char c);
 void	ft_putendl_fd(char *s, int fd);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t n);

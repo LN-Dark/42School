@@ -1,42 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_strcjoin.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/16 10:05:08 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/11/14 14:21:16 by pbranco-         ###   ########.fr       */
+/*   Created: 2024/11/14 14:25:33 by pbranco-          #+#    #+#             */
+/*   Updated: 2024/11/14 14:27:02 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strcjoin(char *str, char c)
 {
-	size_t	i;
-	size_t	j;
-	size_t	len1;
-	size_t	len2;
-	char	*str;
+	char	*new_str;
+	int		i;
+	int		size;
 
-	i = 0;
-	j = 0;
-	len1 = ft_strlen(s1);
-	len2 = ft_strlen(s2);
-	str = (char *)malloc(sizeof(char) * (len1 + len2 + 1));
 	if (!str)
-		return (0);
-	while (i < len1)
 	{
-		str[i] = s1[i];
+		str = malloc(sizeof(char));
+		if (!str)
+			return (NULL);
+		str[0] = '\0';
+	}
+	size = ft_strlen(str);
+	new_str = (char *)malloc(sizeof(char) * (size + 2));
+	if (!new_str)
+		return (NULL);
+	i = 0;
+	while (str[i])
+	{
+		new_str[i] = str[i];
 		i++;
 	}
-	while (j < len2)
-	{
-		str[i + j] = s2[j];
-		j++;
-	}
-	str[i + j] = '\0';
-	return (str);
+	new_str[i++] = c;
+	new_str[i] = '\0';
+	ft_free_gnl(&str);
+	return (new_str);
 }
