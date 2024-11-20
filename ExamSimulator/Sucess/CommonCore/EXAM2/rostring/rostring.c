@@ -1,66 +1,49 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-int main(int argc, char **argv)
-{
+int nextwordindex(char *str){
 	int i = 0;
-	int j = 0;
-	int start = -1;
-	int end = -1;
-	int space = 1;
-	int writed = 0;
-	char *str;
-
-	if(argc > 1)
-	{
-		while (argv[1][i] != '\0')
+	
+	while(str[i] != '\0' && str[i] <= 32)
 		i++;
-		str = malloc(sizeof(char) * i + 1);
-		while (j <= i){
-			str[j] = '\0';
+	return (i);
+}
+
+int ft_strlen(char *str){
+	int i = 0;
+	while (str[i] != '\0'){
+		i++;
+	}
+	return (i);
+}
+
+int main(int argc, char **argv){
+
+	if(argc > 1){
+		int j = nextwordindex(argv[1]);
+		int start = nextwordindex(argv[1]);
+		int end = nextwordindex(argv[1]);
+		int writed = 0; 
+		
+		while (argv[1][j] != '\0' && argv[1][j] >= 33){
+			end++;
 			j++;
 		}
-		j = 0;
-		i = 0;
-		while(argv[1][i] < 33){
-			i++;
-		}
-		start = i;
-		while (argv[1][i] >= 33 && argv[1][i] < 127 && argv[1][i] != '\0'){
-			i++;
-		}
-		end = i;
-		while (argv[1][i] != '\0'){
-			while (argv[1][i] <= 32 && argv[1][i] != '\0'){
-				i++;
-				space = 0;
-			}
-			if (space == 0 && argv[1][i] != '\0'){
-				str[j] = ' ';
-				space = 1;
+		while(argv[1][j] != '\0'){
+			while (argv[1][j] != '\0' && argv[1][j] >= 33){
+				write(1, &argv[1][j], 1);
+				writed = 1;
 				j++;
 			}
-			if(argv[1][i] != '\0'){
-				str[j] = argv[1][i];
-				writed++;
-				i++;
-				j++;
-			}
+			j += nextwordindex(argv[1] + j);
+			if (writed > 0)
+				write(1, " ", 1);
 		}
-		j = 0;
-		if (str[j] == ' ')
-			j++;
-		while (str[j] != '\0'){
-			write(1, &str[j], 1);
-			j++;
-		}
-		free(str);
-		if (writed > 0)
-			write(1, " ", 1);
 		while (start < end){
 			write(1, &argv[1][start], 1);
 			start++;
 		}
 	}
 	write(1, "\n", 1);
+	return (0);
 }
