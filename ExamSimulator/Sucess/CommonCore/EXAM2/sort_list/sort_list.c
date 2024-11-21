@@ -7,8 +7,7 @@ void	swap_values(t_list *a, t_list *b)
 	b->data = swap;
 }
 
-t_list	*sort_list(t_list* lst, int (*cmp)(int, int))
-{
+t_list	*sort_list(t_list* lst, int (*cmp)(int, int)){
 	int swap = 1;
 	t_list *lista = lst;
 	
