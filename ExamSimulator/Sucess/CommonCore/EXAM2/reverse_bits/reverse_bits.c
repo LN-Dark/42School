@@ -1,18 +1,12 @@
 unsigned char	reverse_bits(unsigned char octet){
-	int	i = 7;
-	int	j = 1;
-	char	res = 0;
-	int 	g = 128;
+	unsigned char c = 0;
+	int bits = 7;
 	
-	while (i >= 0)
-	{
-		if (octet & (j << i))
-		{
-			res = res | (g >> i);
-			--i;
-		}
-		else
-			--i;
+	while(bits >= 0){
+		if (octet & 128)
+			c = c | 128 >> bits;
+		octet <<= 1;
+		bits--;
 	}
-	return (res);
+	return (c);
 }
