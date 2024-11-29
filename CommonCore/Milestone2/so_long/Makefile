@@ -5,58 +5,61 @@
 #                                                     +:+ +:+         +:+      #
 #    By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/11/13 08:23:58 by pbranco-          #+#    #+#              #
-#    Updated: 2024/11/13 08:52:47 by pbranco-         ###   ########.fr        #
+#    Created: 2024/10/29 13:02:14 by pbranco-          #+#    #+#              #
+#    Updated: 2024/11/27 10:13:36 by pbranco-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-LIBFT_PATH		=	./libft
-LIBFT			=	$(LIBFT_PATH)/libft.a
+SRC = src/main.c src/map.c src/validate_map.c src/utils.c src/validate_path.c
 
-MINILIBX_PATH	=	./minilibx
-MINILIBX		=	$(MINILIBX_PATH)/libmlx.a
+OBJS	= $(SRCS:.c=.o)
 
-SOURCES_FILES	=	
+SO_LONG		= so_long
 
-SOURCES_DIR		=	sources
+LIBFT_DIR	= ./libft
+LIBFT		= $(LIBFT_DIR)/libft.a
 
-HEADER			=	$(SOURCES_DIR)/so_long.h
+MLX_DIR		= ./mlx
+MLX			= $(MLX_DIR)/libmlx.a
 
-SOURCES			=	$(addprefix $(SOURCES_DIR)/, $(SOURCES_FILES))
+CC			= cc
+CFLAGS		= -Wall -Wextra -Werror -g
+RM			= rm -f
 
-OBJECTS			= 	$(SOURCES:.c=.o)
+MLX_FLAGS	= -L$(MLX_DIR) -lmlx -lXext -lX11 -lm
 
-NAME			=	so_long
+all:		$(LIBFT) $(MLX) $(SO_LONG)
 
-CC				=	cc
-RM				=	rm -f
-
-CFLAGS			=	-Wall -Wextra -Werror
-MLXFLAGS		=	-L. -lXext -L. -lX11
-
-.c.o:
-				$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
-
-all:			$(NAME)
-
-$(NAME):		$(LIBFT) $(MINILIBX) $(OBJECTS) $(HEADER)
-				$(CC) $(CFLAGS) $(OBJECTS) $(LIBFT) $(MINILIBX) $(MLXFLAGS) -o $(NAME)
+$(MLX):
+				@if [ ! -d "$(MLX_DIR)" ]; then \
+					echo "Cloning MiniLibX..."; \
+					git clone https://github.com/42Paris/minilibx-linux.git $(MLX_DIR); \
+				fi
+				@$(MAKE) -C $(MLX_DIR)
 
 $(LIBFT):
-				$(MAKE) -C $(LIBFT_PATH)
+				@$(MAKE) -C $(LIBFT_DIR)
 
-$(MINILIBX):
-				$(MAKE) -C $(MINILIBX_PATH)
+$(SO_LONG): $(LIBFT) $(MLX)	$(OBJS) 
+				$(CC) $(CFLAGS) $(SRC) $^ $(MLX_FLAGS) -o $(SO_LONG)
+
+%.o: %.c
+				$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-				$(MAKE) -C $(LIBFT_PATH) clean
-				$(MAKE) -C $(MINILIBX_PATH) clean
-				$(RM) $(OBJECTS)
+				$(RM) $(OBJS)
+				@$(MAKE) clean -C $(LIBFT_DIR)
+				@$(MAKE) clean -C $(MLX_DIR)
 
-fclean:			clean
-				$(MAKE) -C $(LIBFT_PATH) fclean
-				$(RM) $(NAME)
+fclean:		clean
+				$(RM) $(SO_LONG)
+				@$(MAKE) fclean -C $(LIBFT_DIR)
+				@$(MAKE) clean -C $(MLX_DIR)
+				@if [ -d "$(MLX_DIR)" ]; then \
+					echo "Removing MiniLibX..."; \
+					rm -rf $(MLX_DIR); \
+				fi
 
-re:				fclean all
+re:			fclean all
 
-.PHONY:			all clean fclean re libft minilibx
+.PHONY:		all clean fclean re
