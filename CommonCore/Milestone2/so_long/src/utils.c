@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pcruz <pcruz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 13:45:06 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/11/29 09:49:56 by pbranco-         ###   ########.fr       */
+/*   Updated: 2024/12/02 16:36:06 by pcruz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,27 @@ void exit_game(t_game *game, char *msg)
         ft_printf("%s\n", msg);
     exit(0);
 }
-void	ft_free_solong(t_game *game)
-{
-	int	i;
 
-	i = 0;
-	while(game->map[i]){
-		if (game->map[i]){
-			free(game->map[i]);
-			game->map[i] = NULL;
-		}
-		i++;
-	}
-	if (game->map)
-		free(game->map);
+void ft_free_solong(t_game *game)
+{
+    int i;
+
+    if (!game || !game->map)
+        return;
+
+    i = 0;
+    while (i < game->map_height)
+    {
+        if (game->map[i]){
+            ft_printf("Freeing row %d: %p\n", i, game->map[i]);
+            free(game->map[i]);
+            game->map[i] = NULL;
+        }
+        i++;
+    }
+    ft_printf("Freeing map: %p\n", game->map);
+    free(game->map);
+    game->map = NULL;
 }
 
 t_game	ft_init_game(t_game *game)
@@ -49,6 +56,7 @@ t_game	ft_init_game(t_game *game)
     game->players = 0;
     game->exits = 0;
     game->moves = 0;
+    game->path_available = 0;
     game->exit_open = 0;
     game->wall_img = NULL;
     game->player_img = NULL;

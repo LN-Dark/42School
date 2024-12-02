@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pcruz <pcruz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 13:37:06 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/11/28 11:13:34 by pbranco-         ###   ########.fr       */
+/*   Updated: 2024/12/02 16:15:42 by pcruz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
-
-
 
 int main(int argc, char **argv)
 {
@@ -23,6 +21,16 @@ int main(int argc, char **argv)
         return (ft_printf("Usage: ./so_long <map_file>\n"));
     load_map(&game, argv[1]);
     validate_map(&game);
-    
+    load_images(&game);
+    initialize_window(&game);
+    mlx_loop_hook(game.mlx, main_loop, &game);
+    mlx_loop(game.mlx);
+    return (0);
+}
+
+int main_loop(t_game *game)
+{
+    render_map(game);
+    mlx_loop(game->mlx);
     return (0);
 }

@@ -3,29 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   validate_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pcruz <pcruz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 13:45:01 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/11/29 10:09:38 by pbranco-         ###   ########.fr       */
+/*   Updated: 2024/12/02 15:49:08 by pcruz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-void check_rectangle(t_game *game)
+int is_rectangle(t_game *game)
 {
-    int y;
+    int i;
     int width;
 
-    y = 0;
+    if (!game->map || game->map_height == 0)
+        return (0);
+    i = 0;
     width = ft_strlen(game->map[0]);
-    while (y < game->map_height - 1)
+    while (i < game->map_height - 1)
     {
-        if (ft_strlen(game->map[y]) != width)
-            exit_game(game, "Error: Map is not rectangular.");
-        y++;
+        if (ft_strlen(game->map[i]) != width)
+            return (0);
+        i++;
     }
-    game->map_width = width;
+    return (1);
 }
 
 void check_walls(t_game *game)
@@ -33,7 +35,7 @@ void check_walls(t_game *game)
     int i;
 
     i = 0;
-    while (i < game->map_width - 1)
+    while (i < game->map_width)
     {
         if (game->map[0][i] != '1' || game->map[game->map_height - 1][i] != '1')
             exit_game(game, "Error: Map is not surrounded by walls.");
@@ -42,7 +44,7 @@ void check_walls(t_game *game)
     i = 0;
     while (i < game->map_height)
     {
-        if (game->map[i][0] != '1' || game->map[i][game->map_width - 2] != '1')
+        if (game->map[i][0] != '1' || game->map[i][game->map_width - 1] != '1')
             exit_game(game, "Error: Map is not surrounded by walls.");
         i++;
     }
@@ -69,7 +71,6 @@ void check_elements(t_game *game)
             else if (game->map[y][x] != 'C' && game->map[y][x] != 'E'
                 && game->map[y][x] != 'P' && game->map[y][x] != '1' && game->map[y][x] != '0'){ 
                 exit_game(game, "Error: Map must contain only P, C, E, 0, 1.");
-
             }
             x++;
         }
@@ -77,23 +78,10 @@ void check_elements(t_game *game)
     }
 }
 
-void    ft_check_route(t_game *game)
-{
-    if (game->player_y < 0 || game->player_y >= game->map_height
-        || game->player_x < 0 || game->player_x >= game->map_width
-        || game->map[game->player_y][game->player_x] != '0')
-        return;
-
-    game->map[game->player_y][game->player_x] = '0';
-    ft_check_route(game);
-    ft_check_route(game);
-    ft_check_route(game);
-    ft_check_route(game);
-}
-
 void validate_map(t_game *game)
 {
-    check_rectangle(game);
+    if (!is_rectangle(game))
+        exit_game(game, "Error: Map is not rectangular.");
     check_walls(game);
     check_elements(game);
     if (game->collectibles <= 0 || game->exits != 1 || game->players != 1)

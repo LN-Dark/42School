@@ -18,15 +18,8 @@ int	ft_print_unsigned(unsigned int n)
 	int		lenght;
 
 	lenght = 0;
-	if (n < 0)
-	{
-		lenght = ft_printc(n + 48);
-	}
-	else
-	{
-		nb = ft_uitoa(n);
-		lenght = ft_printstr(nb);
-		free(nb);
-	}
+	nb = ft_uitoa(n);
+	lenght = ft_printstr(nb);
+	free(nb);
 	return (lenght);
 }

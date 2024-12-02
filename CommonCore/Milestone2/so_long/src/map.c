@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pcruz <pcruz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 10:07:07 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/11/29 10:08:14 by pbranco-         ###   ########.fr       */
+/*   Updated: 2024/12/02 16:37:01 by pcruz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,25 +19,50 @@ void load_map(t_game *game, char *file)
     int i;
 
     fd = open(file, O_RDONLY);
-    i = 0;
-    if (fd < 0)
+    if (fd < 0 || ft_strcmp(file + (ft_strlen(file) - 4), ".ber") != 0)
         exit_game(game, "Error: Invalid map file.");
-    if(ft_strcmp(file + (ft_strlen(file) - 4), ".ber") != 0)
-    	exit_game(game, "Error: Invalid map file.");
-    while ((line = get_next_line(fd)) > 0)
-        i++;
+    while ((line = get_next_line(fd)) != NULL)
+        game->map_height++;
     close(fd);
-    game->map = ft_calloc(i, sizeof(char **));
-    i = 0;
     fd = open(file, O_RDONLY);
-    while ((line = get_next_line(fd)) > 0)
+    game->map = (char **)ft_calloc(game->map_height, sizeof(char *));
+    if (!game->map)
+        exit_game(game, "Error: Memory allocation failed");
+    i = 0;
+    while (i < game->map_height)
     {
-        game->map[i++] = line;
-        printf("game->map: %s", game->map[i-1]);
-        
+        line = get_next_line(fd);
+        game->map[i] = line;
+        i++;
     }
-    game->map[i] = NULL;
-    game->map_height = i;
-    game->map_width = ft_strlen(game->map[0]);
     close(fd);
+    game->map_width = ft_strlen(game->map[0]) - 1;
+    check_player_x_y(game);
+}
+
+void render_map(t_game *game)
+{
+    int x;
+    int y;
+
+    y = 0;
+    while (y < game->map_height)
+    {
+        x = 0;
+        while (x < game->map_width)
+        {
+            if (game->map[y][x] == '1')
+                mlx_put_image_to_window(game->mlx, game->win, game->wall_img, x * TILE_SIZE, y * TILE_SIZE);
+            else if (game->map[y][x] == 'C')
+                mlx_put_image_to_window(game->mlx, game->win, game->collectible_img, x * TILE_SIZE, y * TILE_SIZE);
+            else if (game->map[y][x] == 'E')
+                mlx_put_image_to_window(game->mlx, game->win, game->exit_closed_img, x * TILE_SIZE, y * TILE_SIZE);
+            else if (game->map[y][x] == 'P')
+                mlx_put_image_to_window(game->mlx, game->win, game->player_img, x * TILE_SIZE, y * TILE_SIZE);
+            else if (game->map[y][x] == 'F')
+                mlx_put_image_to_window(game->mlx, game->win, game->ground_img, x * TILE_SIZE, y * TILE_SIZE);
+            x++;
+        }
+        y++;
+    }
 }

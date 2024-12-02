@@ -114,7 +114,7 @@ char	*ft_calloc_gnl(size_t count, size_t size)
 
 	i = 0;
 	if (count == 0 || size == 0)
-		return (malloc(0));
+		return (0);
 	if (count > SIZE_MAX / size)
 		return (NULL);
 	b = count * size;

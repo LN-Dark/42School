@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validate_path.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pcruz <pcruz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 14:16:47 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/11/29 10:18:29 by pbranco-         ###   ########.fr       */
+/*   Updated: 2024/12/02 16:39:40 by pcruz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ void flood_fill_with_loop(t_game *game, int start_x, int start_y)
         if (is_valid(p.x, p.y, game, game->map) == 0)
             continue;
         if (game->map[p.y][p.x] == 'C')
-            game->gathered++;
+            game->verify_collect++;
         if (game->map[p.y][p.x] == 'E')
-            game->moves = 1;
-        if (game->map[p.y][p.x] == 'E' && game->gathered != game->collectibles)
+            game->path_available = 1;
+        if (game->map[p.y][p.x] == 'E' && game->verify_collect != game->collectibles)
         {
             game->map[p.y][p.x] = 'F';
             continue;
@@ -47,6 +47,6 @@ void flood_fill_with_loop(t_game *game, int start_x, int start_y)
         stack[++top] = (t_point){p.x, p.y - 1};
     }
     free(stack);
-    if(game->gathered != game->collectibles || game->moves != 1)
+    if(game->verify_collect != game->collectibles || game->path_available != 1)
     	exit_game(game, "Error: No path available.");
 }

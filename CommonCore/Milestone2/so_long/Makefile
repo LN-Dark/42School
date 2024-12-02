@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+         #
+#    By: pcruz <pcruz@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/29 13:02:14 by pbranco-          #+#    #+#              #
-#    Updated: 2024/11/27 10:13:36 by pbranco-         ###   ########.fr        #
+#    Updated: 2024/12/02 16:01:40 by pcruz            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = src/main.c src/map.c src/validate_map.c src/utils.c src/validate_path.c
+SRC = src/main.c src/map.c src/validate_map.c src/utils.c src/validate_path.c src/init_game.c
 
 OBJS	= $(SRCS:.c=.o)
 

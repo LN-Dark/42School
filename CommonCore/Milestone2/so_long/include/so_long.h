@@ -3,15 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pcruz <pcruz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 13:37:45 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/11/29 09:05:24 by pbranco-         ###   ########.fr       */
+/*   Updated: 2024/12/02 16:39:26 by pcruz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
+
+# define TILE_SIZE 60
 
 # include "../mlx/mlx.h"
 # include <fcntl.h>
@@ -30,8 +32,11 @@ typedef struct s_game {
     int     players;
     int     exits;
     int     moves;
+    int     path_available;
+    int     verify_collect;
     int     exit_open;
     void    *wall_img;
+    void    *ground_img;
     void    *player_img;
     void    *collectible_img;
     void    *exit_closed_img;
@@ -52,5 +57,10 @@ t_game  ft_init_game(t_game *game);
 void check_player_x_y(t_game *game);
 void flood_fill_with_loop(t_game *game, int start_x, int start_y);
 int is_valid(int x, int y, t_game *game, char **map);
+void initialize_game(t_game *game);
+void load_images(t_game *game);
+void render_map(t_game *game);
+void initialize_window(t_game *game);
+int main_loop(t_game *game);
 
 #endif
