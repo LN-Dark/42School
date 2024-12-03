@@ -6,7 +6,7 @@
 /*   By: pcruz <pcruz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 13:45:01 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/12/03 08:29:58 by pcruz            ###   ########.fr       */
+/*   Updated: 2024/12/03 10:36:31 by pcruz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ void check_elements(t_game *game)
 
 void validate_map(t_game *game)
 {
+    game->exit_open = 0;
     if (!is_rectangle(game))
         exit_game(game, "Error: Map is not rectangular.");
     check_walls(game);

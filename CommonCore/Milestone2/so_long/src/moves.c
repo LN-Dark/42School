@@ -6,7 +6,7 @@
 /*   By: pcruz <pcruz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 08:45:19 by pcruz             #+#    #+#             */
-/*   Updated: 2024/12/03 08:53:03 by pcruz            ###   ########.fr       */
+/*   Updated: 2024/12/03 10:32:31 by pcruz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,10 @@ void move_player(t_game *game, int dx, int dy)
 
     if (game->map[new_y][new_x] == '1')
         return; // Wall collision, do nothing
-
+    game->map[game->player_y][game->player_x] = '0';
     game->player_x = new_x;
     game->player_y = new_y;
+    game->map[game->player_y][game->player_x] = 'P';
     game->moves++;
     update_game_state(game);
     render_map(game);

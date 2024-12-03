@@ -6,7 +6,7 @@
 /*   By: pcruz <pcruz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 10:07:07 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/12/03 10:15:59 by pcruz            ###   ########.fr       */
+/*   Updated: 2024/12/03 10:43:58 by pcruz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,11 @@ void render_map(t_game *game)
             else if (game->map[y][x] == 'C')
                 mlx_put_image_to_window(game->mlx, game->win, game->collectible_img, x * TILE_SIZE, y * TILE_SIZE);
             else if (game->map[y][x] == 'E')
+            {
                 mlx_put_image_to_window(game->mlx, game->win, game->exit_closed_img, x * TILE_SIZE, y * TILE_SIZE);
+                if (game->exit_open)
+                    mlx_put_image_to_window(game->mlx, game->win, game->exit_open_img, x * TILE_SIZE, y * TILE_SIZE);
+            }
             else if (game->map[y][x] == 'P')
                 mlx_put_image_to_window(game->mlx, game->win, game->player_img, x * TILE_SIZE, y * TILE_SIZE);
             else if (game->map[y][x] == '0')
