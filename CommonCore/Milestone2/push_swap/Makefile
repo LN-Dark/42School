@@ -6,11 +6,11 @@
 #    By: pcruz <pcruz@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/29 13:02:14 by pbranco-          #+#    #+#              #
-#    Updated: 2024/12/03 08:46:40 by pcruz            ###   ########.fr        #
+#    Updated: 2024/12/03 16:01:14 by pcruz            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = src/main.c 
+SRC = src/main.c src/operations.c src/parse_arguments.c src/push_swap.c
 
 OBJS	= $(SRCS:.c=.o)
 
