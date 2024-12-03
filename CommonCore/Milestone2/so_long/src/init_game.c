@@ -6,7 +6,7 @@
 /*   By: pcruz <pcruz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 15:56:43 by pcruz             #+#    #+#             */
-/*   Updated: 2024/12/03 10:40:39 by pcruz            ###   ########.fr       */
+/*   Updated: 2024/12/03 11:01:54 by pcruz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ void load_images(t_game *game)
     game->ground_img = mlx_xpm_file_to_image(game->mlx, "./assets/ground.xpm", &img_width, &img_height);
     game->collectible_img = mlx_xpm_file_to_image(game->mlx, "./assets/key.xpm", &img_width, &img_height);
     game->exit_closed_img = mlx_xpm_file_to_image(game->mlx, "./assets/exit-closed.xpm", &img_width, &img_height);
-    game->exit_open_img = mlx_xpm_file_to_image(game->mlx, "./assets/open-exit.xpm", &img_width, &img_height);
+    game->exit_open_img = mlx_xpm_file_to_image(game->mlx, "./assets/exit_open.xpm", &img_width, &img_height);
     if (!game->exit_open_img)
         exit_game(game, "Error: Failed to load exit open image.");
-    if (!game->wall_img || !game->player_img || !game->collectible_img || !game->exit_closed_img || !game->exit_open_img)
-        exit_game(game, "Error: Failed to load images");
+    if (!game->wall_img || !game->ground_img || !game->player_img || !game->collectible_img || !game->exit_closed_img || !game->exit_open_img)
+        exit_game(game, "Error: Failed to load images.");
 }
 
 void initialize_window(t_game *game)
