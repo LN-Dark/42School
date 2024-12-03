@@ -6,7 +6,7 @@
 /*   By: pcruz <pcruz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 10:07:07 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/12/02 16:37:01 by pcruz            ###   ########.fr       */
+/*   Updated: 2024/12/03 10:15:59 by pcruz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void load_map(t_game *game, char *file)
     char *line;
     int i;
 
+    game->map_height = 0,
     fd = open(file, O_RDONLY);
     if (fd < 0 || ft_strcmp(file + (ft_strlen(file) - 4), ".ber") != 0)
         exit_game(game, "Error: Invalid map file.");
@@ -59,7 +60,7 @@ void render_map(t_game *game)
                 mlx_put_image_to_window(game->mlx, game->win, game->exit_closed_img, x * TILE_SIZE, y * TILE_SIZE);
             else if (game->map[y][x] == 'P')
                 mlx_put_image_to_window(game->mlx, game->win, game->player_img, x * TILE_SIZE, y * TILE_SIZE);
-            else if (game->map[y][x] == 'F')
+            else if (game->map[y][x] == '0')
                 mlx_put_image_to_window(game->mlx, game->win, game->ground_img, x * TILE_SIZE, y * TILE_SIZE);
             x++;
         }

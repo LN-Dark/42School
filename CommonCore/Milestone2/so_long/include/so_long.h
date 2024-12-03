@@ -6,14 +6,14 @@
 /*   By: pcruz <pcruz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 13:37:45 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/12/02 16:39:26 by pcruz            ###   ########.fr       */
+/*   Updated: 2024/12/03 08:57:31 by pcruz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# define TILE_SIZE 60
+# define TILE_SIZE 32
 
 # include "../mlx/mlx.h"
 # include <fcntl.h>
@@ -55,12 +55,16 @@ void    ft_free_solong(t_game *game);
 int main(int argc, char **argv);
 t_game  ft_init_game(t_game *game);
 void check_player_x_y(t_game *game);
-void flood_fill_with_loop(t_game *game, int start_x, int start_y);
+void flood_fill_with_loop(t_game *game);
 int is_valid(int x, int y, t_game *game, char **map);
 void initialize_game(t_game *game);
 void load_images(t_game *game);
 void render_map(t_game *game);
 void initialize_window(t_game *game);
 int main_loop(t_game *game);
+void handle_user_input(t_game *game);
+void update_game_state(t_game *game);
+int handle_keypress(int keycode, t_game *game);
+void move_player(t_game *game, int dx, int dy);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: pcruz <pcruz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 13:45:06 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/12/02 16:36:06 by pcruz            ###   ########.fr       */
+/*   Updated: 2024/12/03 10:13:02 by pcruz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ t_game	ft_init_game(t_game *game)
     game->exit_open = 0;
     game->wall_img = NULL;
     game->player_img = NULL;
+    game->ground_img = NULL;
     game->collectible_img = NULL;
     game->exit_closed_img = NULL;
     game->exit_open_img = NULL;

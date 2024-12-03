@@ -6,7 +6,7 @@
 /*   By: pcruz <pcruz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 13:45:01 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/12/02 15:49:08 by pcruz            ###   ########.fr       */
+/*   Updated: 2024/12/03 08:29:58 by pcruz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,10 @@ void check_elements(t_game *game)
 
     x = 0;
     y = 0;
-    while (y < game->map_height - 1)
+    while (y < game->map_height)
     {
         x = 0;
-        while (x < game->map_width - 1)
+        while (x < game->map_width)
         {
             if (game->map[y][x] == 'P')
                 game->players++;
@@ -86,6 +86,4 @@ void validate_map(t_game *game)
     check_elements(game);
     if (game->collectibles <= 0 || game->exits != 1 || game->players != 1)
         exit_game(game, "Error: Map must contain 1 player, 1 exit, and at least 1 collectible.");
-    check_player_x_y(game);
-    flood_fill_with_loop(game, game->player_x, game->player_y);
 }

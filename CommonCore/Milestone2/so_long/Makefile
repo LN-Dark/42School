@@ -6,11 +6,11 @@
 #    By: pcruz <pcruz@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/29 13:02:14 by pbranco-          #+#    #+#              #
-#    Updated: 2024/12/02 16:01:40 by pcruz            ###   ########.fr        #
+#    Updated: 2024/12/03 08:46:40 by pcruz            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = src/main.c src/map.c src/validate_map.c src/utils.c src/validate_path.c src/init_game.c
+SRC = src/main.c src/map.c src/validate_map.c src/utils.c src/validate_path.c src/init_game.c src/moves.c
 
 OBJS	= $(SRCS:.c=.o)
 

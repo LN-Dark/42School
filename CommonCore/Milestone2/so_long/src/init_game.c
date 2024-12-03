@@ -6,7 +6,7 @@
 /*   By: pcruz <pcruz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 15:56:43 by pcruz             #+#    #+#             */
-/*   Updated: 2024/12/02 16:38:49 by pcruz            ###   ########.fr       */
+/*   Updated: 2024/12/03 08:35:13 by pcruz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void load_images(t_game *game)
         exit_game(game, "Error: MLX initialization failed");
     game->wall_img = mlx_xpm_file_to_image(game->mlx, "./assets/wall.xpm", &img_width, &img_height);
     game->player_img = mlx_xpm_file_to_image(game->mlx, "./assets/player.xpm", &img_width, &img_height);
-    game->player_img = mlx_xpm_file_to_image(game->mlx, "./assets/ground.xpm", &img_width, &img_height);
+    game->ground_img = mlx_xpm_file_to_image(game->mlx, "./assets/ground.xpm", &img_width, &img_height);
     game->collectible_img = mlx_xpm_file_to_image(game->mlx, "./assets/key.xpm", &img_width, &img_height);
     game->exit_closed_img = mlx_xpm_file_to_image(game->mlx, "./assets/exit-closed.xpm", &img_width, &img_height);
     game->exit_open_img = mlx_xpm_file_to_image(game->mlx, "./assets/open-exit.xpm", &img_width, &img_height);
