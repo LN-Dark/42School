@@ -6,7 +6,7 @@
 /*   By: pcruz <pcruz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 13:37:45 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/12/03 10:58:55 by pcruz            ###   ########.fr       */
+/*   Updated: 2024/12/03 11:08:06 by pcruz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 # include "../mlx/mlx.h"
 # include <fcntl.h>
+# include <stdio.h>
 # include "../libft/libft.h"
 
 typedef struct s_game {

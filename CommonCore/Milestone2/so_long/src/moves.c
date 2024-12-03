@@ -6,7 +6,7 @@
 /*   By: pcruz <pcruz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 08:45:19 by pcruz             #+#    #+#             */
-/*   Updated: 2024/12/03 11:04:52 by pcruz            ###   ########.fr       */
+/*   Updated: 2024/12/03 12:32:36 by pcruz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,11 @@ void update_game_state(t_game *game)
     {
         game->collectibles--;
         game->map[game->player_y][game->player_x] = '0';
-        printf("Collectibles left: %d\n", game->collectibles);
+        ft_printf("Collectibles left: %d\n", game->collectibles);
         if (game->collectibles == 0)
         {
             game->exit_open = 1;
-            printf("Exit is now open.\n");
+            ft_printf("Exit is now open.\n");
         }
     }
     if (game->map[game->player_y][game->player_x] == 'E' && game->exit_open)
