@@ -6,7 +6,7 @@
 /*   By: pcruz <pcruz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 13:45:06 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/12/03 11:00:09 by pcruz            ###   ########.fr       */
+/*   Updated: 2024/12/03 13:02:32 by pcruz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,11 @@ void ft_free_solong(t_game *game)
     while (i < game->map_height)
     {
         if (game->map[i]){
-            ft_printf("Freeing row %d: %p\n", i, game->map[i]);
             free(game->map[i]);
             game->map[i] = NULL;
         }
         i++;
     }
-    ft_printf("Freeing map: %p\n", game->map);
     free(game->map);
     game->map = NULL;
 }
