@@ -6,7 +6,7 @@
 #    By: pcruz <pcruz@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/29 13:02:14 by pbranco-          #+#    #+#              #
-#    Updated: 2024/12/03 08:46:40 by pcruz            ###   ########.fr        #
+#    Updated: 2024/12/04 08:26:45 by pbranco-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ MLX_DIR		= ./mlx
 MLX			= $(MLX_DIR)/libmlx.a
 
 CC			= cc
-CFLAGS		= -Wall -Wextra -Werror -g
+CFLAGS		= -Wall -Wextra -Werror -g #-fsanitize=address
 RM			= rm -f
 
 MLX_FLAGS	= -L$(MLX_DIR) -lmlx -lXext -lX11 -lm

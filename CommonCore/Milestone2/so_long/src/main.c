@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pcruz <pcruz@student.42.fr>                +#+  +:+       +#+        */
+/*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 13:37:06 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/12/03 14:40:59 by pcruz            ###   ########.fr       */
+/*   Updated: 2024/12/04 11:23:48 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,13 @@ int	main(int argc, char **argv)
 		return (ft_printf("Usage: ./so_long <map_file>\n"));
 	load_map(&game, argv[1]);
 	validate_map(&game);
-	check_player_x_y(&game);
 	flood_fill_with_loop(&game);
-	load_map(&game, argv[1]);
 	load_images(&game);
 	initialize_window(&game);
 	handle_user_input(&game);
 	render_map(&game);
 	mlx_loop_hook(game.mlx, main_loop, &game);
+	mlx_hook(game.win, 17, 0, exit_game_clean, &game);
 	mlx_loop(game.mlx);
 	return (0);
 }

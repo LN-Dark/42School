@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pcruz <pcruz@student.42.fr>                +#+  +:+       +#+        */
+/*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 10:07:07 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/12/03 14:57:14 by pcruz            ###   ########.fr       */
+/*   Updated: 2024/12/04 11:29:37 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,13 @@ void	count_map_height(t_game *game, char *file)
 	if (fd < 0 || ft_strcmp(file + (ft_strlen(file) - 4), ".ber") != 0)
 		exit_game(game, "Error: Invalid map file.");
 	line = get_next_line(fd);
+	if (!line)
+		exit_game(game, "Error: Invalid map file.");
 	while (line != NULL)
 	{
-		game->map_height++;
 		free(line);
 		line = get_next_line(fd);
+		game->map_height++;
 	}
 	close(fd);
 }
@@ -34,24 +36,27 @@ void	count_map_height(t_game *game, char *file)
 void	load_map(t_game *game, char *file)
 {
 	int		fd;
-	char	*line;
+	char	*tmp;
 	int		i;
 
 	count_map_height(game, file);
 	fd = open(file, O_RDONLY);
-	game->map = (char **)ft_calloc(game->map_height, sizeof(char *));
-	if (!game->map)
+	game->map = ft_calloc(game->map_height + 1, sizeof(char *));
+	game->map_temp = ft_calloc(game->map_height + 1, sizeof(char *));
+	if (!game->map || !game->map_temp)
 		exit_game(game, "Error: Memory allocation failed");
-	i = 0;
-	while (i < game->map_height)
+	i = -1;
+	while (++i < game->map_height)
 	{
-		line = get_next_line(fd);
-		game->map[i] = line;
-		i++;
+		game->map[i] = get_next_line(fd);
+		game->map_temp[i] = ft_strdup(game->map[i]);
 	}
+	tmp = get_next_line(fd);
+	free(tmp);
+	game->map[i] = NULL;
+	game->map_temp[i] = NULL;
 	close(fd);
 	game->map_width = ft_strlen(game->map[0]) - 1;
-	check_player_x_y(game);
 }
 
 void	render_tile(t_game *game, int x, int y)

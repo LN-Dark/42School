@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   moves.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pcruz <pcruz@student.42.fr>                +#+  +:+       +#+        */
+/*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 08:45:19 by pcruz             #+#    #+#             */
-/*   Updated: 2024/12/03 15:00:17 by pcruz            ###   ########.fr       */
+/*   Updated: 2024/12/04 11:06:08 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,7 @@ void	update_game_state(t_game *game)
 			game->exit_open = 1;
 	}
 	if (game->map[game->player_y][game->player_x] == 'E' && game->exit_open)
-	{
 		exit_game(game, "You Win!");
-	}
 	if (game->map[game->player_y][game->player_x] == '0')
 	{
 		game->map[game->player_y][game->player_x] = 'P';
@@ -57,10 +55,17 @@ void	move_player(t_game *game, int dx, int dy)
 		return ;
 	game->player_x = game->player_x + dx;
 	game->player_y = game->player_y + dy;
-	game->map[game->player_y - dy][game->player_x - dx] = '0';
-	game->moves++;
-	ft_printf("New coordinates x - %d, y - %d, move nº %d\n",
-		game->player_x, game->player_y, game->moves);
-	update_game_state(game);
-	render_map(game);
+	if (game->map[game->player_y][game->player_x] == 'E' && !game->exit_open)
+	{
+		game->player_x = game->player_x - dx;
+		game->player_y = game->player_y - dy;
+	}
+	else
+	{
+		game->map[game->player_y - dy][game->player_x - dx] = '0';
+		game->moves++;
+		ft_printf("Move: %d\n", game->moves);
+		update_game_state(game);
+		render_map(game);
+	}
 }

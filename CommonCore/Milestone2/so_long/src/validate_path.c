@@ -3,34 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   validate_path.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pcruz <pcruz@student.42.fr>                +#+  +:+       +#+        */
+/*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 14:16:47 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/12/03 15:14:44 by pcruz            ###   ########.fr       */
+/*   Updated: 2024/12/04 11:24:11 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-int	is_valid(int x, int y, t_game *game, char **map)
+int	is_valid(int x, int y, t_game *game)
 {
 	return (x >= 0 && y >= 0 && x < game->map_width
-		&& y < game->map_height && map[y][x] != 'F' && map[y][x] != '1');
+		&& y < game->map_height && game->map_temp[y][x] != 'F'
+		&& game->map_temp[y][x] != '1');
 }
 
 void	process_tile(t_game *game, t_point p, t_point *stack, int *top)
 {
-	if (game->map[p.y][p.x] == 'C')
+	if (game->map_temp[p.y][p.x] == 'C')
 		game->verify_collect++;
-	if (game->map[p.y][p.x] == 'E')
+	if (game->map_temp[p.y][p.x] == 'E')
 		game->path_available = 1;
-	if (game->map[p.y][p.x] == 'E'
+	if (game->map_temp[p.y][p.x] == 'E'
 		&& game->verify_collect != game->collectibles)
 	{
-		game->map[p.y][p.x] = 'F';
+		game->map_temp[p.y][p.x] = 'F';
 		return ;
 	}
-	game->map[p.y][p.x] = 'F';
+	game->map_temp[p.y][p.x] = 'F';
 	if (*top + 4 >= game->map_width * game->map_height)
 	{
 		free(stack);
@@ -58,7 +59,7 @@ void	flood_fill_with_loop(t_game *game)
 	while (top >= 0)
 	{
 		p = stack[top--];
-		if (is_valid(p.x, p.y, game, game->map) == 0)
+		if (is_valid(p.x, p.y, game) == 0)
 			continue ;
 		process_tile(game, p, stack, &top);
 	}

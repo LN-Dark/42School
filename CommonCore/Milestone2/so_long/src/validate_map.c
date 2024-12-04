@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validate_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pcruz <pcruz@student.42.fr>                +#+  +:+       +#+        */
+/*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 13:45:01 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/12/03 15:08:10 by pcruz            ###   ########.fr       */
+/*   Updated: 2024/12/04 10:21:02 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,24 @@ void	check_walls(t_game *game)
 	}
 }
 
+void	check_element(t_game *game, int x, int y)
+{
+	if (game->map[y][x] == 'P')
+	{
+		game->players++;
+		game->player_x = x;
+		game->player_y = y;
+	}
+	else if (game->map[y][x] == 'E')
+		game->exits++;
+	else if (game->map[y][x] == 'C')
+		game->collectibles++;
+	else if (game->map[y][x] != 'C' && game->map[y][x] != 'E'
+		&& game->map[y][x] != 'P' && game->map[y][x] != '1'
+		&& game->map[y][x] != '0')
+		exit_game(game, "Error: Map must contain only P, C, E, 0, 1.");
+}
+
 void	check_elements(t_game *game)
 {
 	int	x;
@@ -62,16 +80,7 @@ void	check_elements(t_game *game)
 		x = 0;
 		while (x < game->map_width)
 		{
-			if (game->map[y][x] == 'P')
-				game->players++;
-			else if (game->map[y][x] == 'E')
-				game->exits++;
-			else if (game->map[y][x] == 'C')
-				game->collectibles++;
-			else if (game->map[y][x] != 'C' && game->map[y][x] != 'E'
-				&& game->map[y][x] != 'P' && game->map[y][x] != '1'
-				&& game->map[y][x] != '0')
-				exit_game(game, "Error: Map must contain only P, C, E, 0, 1.");
+			check_element(game, x, y);
 			x++;
 		}
 		y++;

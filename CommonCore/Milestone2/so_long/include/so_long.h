@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pcruz <pcruz@student.42.fr>                +#+  +:+       +#+        */
+/*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 13:34:10 by pcruz             #+#    #+#             */
-/*   Updated: 2024/12/03 15:13:24 by pcruz            ###   ########.fr       */
+/*   Updated: 2024/12/04 11:23:24 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct s_game
 	void	*mlx;
 	void	*win;
 	char	**map;
+	char	**map_temp;
 	int		map_width;
 	int		map_height;
 	int		player_x;
@@ -66,10 +67,14 @@ void	count_map_height(t_game *game, char *file);
 void	render_tile(t_game *game, int x, int y);
 void	move_player(t_game *game, int dx, int dy);
 void	process_tile(t_game *game, t_point p, t_point *stack, int *top);
-int		is_valid(int x, int y, t_game *game, char **map);
+void	ft_destroymlx(t_game *game);
+void	check_element(t_game *game, int x, int y);
+void	check_elements(t_game *game);
+int		is_valid(int x, int y, t_game *game);
 int		main_loop(t_game *game);
 int		handle_keypress(int keycode, t_game *game);
 int		main(int argc, char **argv);
+int		exit_game_clean(t_game *game);
 t_game	ft_init_game(t_game *game);
 
 #endif
