@@ -6,7 +6,7 @@
 /*   By: pcruz <pcruz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 10:11:02 by pcruz             #+#    #+#             */
-/*   Updated: 2024/12/05 10:43:46 by pcruz            ###   ########.fr       */
+/*   Updated: 2024/12/05 11:07:48 by pcruz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void shift_bottom_to_top(int *arr, int size)
 
 void rotate_both(int *a, int size_a, int *b, int size_b)
 {
-    rotate_array(a, size_a);
-    rotate_array(b, size_b);
+    shift_bottom_to_top(a, size_a);
+    shift_bottom_to_top(b, size_b);
 }
 

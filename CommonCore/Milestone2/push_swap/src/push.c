@@ -6,7 +6,7 @@
 /*   By: pcruz <pcruz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 10:10:48 by pcruz             #+#    #+#             */
-/*   Updated: 2024/12/05 10:44:40 by pcruz            ###   ########.fr       */
+/*   Updated: 2024/12/05 12:51:58 by pcruz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void move_top(int **stack_to, int *size_to, int **stack_from, int *size_from)
         i++;
     }
     new_stack_to[0] = (*stack_from)[0];
-    ft_free_gnl(*stack_to);
+    free(*stack_to);
     *stack_to = new_stack_to;
     (*size_to)++;
     i = 0;
@@ -48,7 +48,7 @@ void move_top(int **stack_to, int *size_to, int **stack_from, int *size_from)
         new_stack_from[i] = (*stack_from)[i];
         i++;
     }
-    ft_free_gnl(*stack_from);
+    free(*stack_from);
     *stack_from = new_stack_from;
     (*size_from)--;
 }
