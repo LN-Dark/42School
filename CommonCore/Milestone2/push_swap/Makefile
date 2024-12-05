@@ -6,11 +6,11 @@
 #    By: pcruz <pcruz@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/29 13:02:14 by pbranco-          #+#    #+#              #
-#    Updated: 2024/12/03 16:01:14 by pcruz            ###   ########.fr        #
+#    Updated: 2024/12/05 10:29:42 by pcruz            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = src/main.c src/operations.c src/parse_arguments.c src/push_swap.c
+SRCS = src/main.c src/swap.c src/push.c src/rotate.c src/reverse.c
 
 OBJS	= $(SRCS:.c=.o)
 
@@ -26,13 +26,13 @@ RM			= rm -f
 all:		$(LIBFT) $(PUSH_SWAP)
 
 $(LIBFT):
-				@$(MAKE) -C $(LIBFT_DIR)
+		@$(MAKE) -C $(LIBFT_DIR)
 
-$(PUSH_SWAP): $(LIBFT)	$(OBJS) 
-				$(CC) $(CFLAGS) $(SRC) -o $(PUSH_SWAP)
+$(PUSH_SWAP):	$(LIBFT)	$(OBJS) 
+					$(CC) $(CFLAGS) $(SRCS) $(LIBFT) -o $(PUSH_SWAP)
 
 %.o: %.c
-				$(CC) $(CFLAGS) -c $< -o $@
+			$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 				$(RM) $(OBJS)
