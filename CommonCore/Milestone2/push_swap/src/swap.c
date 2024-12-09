@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pcruz <pcruz@student.42.fr>                +#+  +:+       +#+        */
+/*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 10:10:29 by pcruz             #+#    #+#             */
-/*   Updated: 2024/12/05 10:44:23 by pcruz            ###   ########.fr       */
+/*   Updated: 2024/12/09 14:38:20 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "../include/push_swap.h"
 
-void swap_first_two(int arr[], int size)
+void sa_sb(int arr[], int size)
 {
 	int temp;
 
@@ -27,7 +27,7 @@ void swap_first_two(int arr[], int size)
     arr[1] = temp;
 }
 
-void swap_arrays(int a[], int b[], int size)
+void ss(int a[], int b[], int size)
 {
 	int i;
 

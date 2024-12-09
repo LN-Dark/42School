@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   reverse.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pcruz <pcruz@student.42.fr>                +#+  +:+       +#+        */
+/*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 10:11:18 by pcruz             #+#    #+#             */
-/*   Updated: 2024/12/05 10:43:31 by pcruz            ###   ########.fr       */
+/*   Updated: 2024/12/09 14:37:09 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void rotate_top_to_bottom(int *arr, int size)
+void rra_rrb(int *arr, int size)
 {
 	int last;
 	int i;
@@ -32,8 +32,8 @@ void rotate_top_to_bottom(int *arr, int size)
     arr[0] = last;
 }
 
-void rotate_both_top_to_bottom(int *a, int size_a, int *b, int size_b)
+void rrr(int *a, int size_a, int *b, int size_b)
 {
-    rotate_top_to_bottom(a, size_a);
-    rotate_top_to_bottom(b, size_b);
+    rra_rrb(a, size_a);
+    rra_rrb(b, size_b);
 }

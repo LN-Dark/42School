@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pcruz <pcruz@student.42.fr>                +#+  +:+       +#+        */
+/*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 15:28:32 by pcruz             #+#    #+#             */
-/*   Updated: 2024/12/05 10:54:43 by pcruz            ###   ########.fr       */
+/*   Updated: 2024/12/09 14:38:28 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,12 @@
 
 # include "../libft/libft.h"
 
-void swap_first_two(int arr[], int size);
-void swap_arrays(int a[], int b[], int size);
-void move_top(int **stack_to, int *size_to, int **stack_from, int *size_from);
-void shift_bottom_to_top(int *arr, int size);
-void rotate_both(int *a, int size_a, int *b, int size_b);
-void rotate_top_to_bottom(int *arr, int size);
-void rotate_both_top_to_bottom(int *a, int size_a, int *b, int size_b);
-void print_stack(int *stack, int size);
+void sa_sb(int arr[], int size);
+void ss(int a[], int b[], int size);
+void pa_pb(int **stack_to, int *size_to, int **stack_from, int *size_from);
+void ra_rb(int *arr, int size);
+void rr(int *a, int size_a, int *b, int size_b);
+void rra_rrb(int *arr, int size);
+void rrr(int *a, int size_a, int *b, int size_b);
 
 #endif

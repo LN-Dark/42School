@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pcruz <pcruz@student.42.fr>                +#+  +:+       +#+        */
+/*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 10:11:02 by pcruz             #+#    #+#             */
-/*   Updated: 2024/12/05 11:07:48 by pcruz            ###   ########.fr       */
+/*   Updated: 2024/12/09 14:38:06 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void shift_bottom_to_top(int *arr, int size)
+void ra_rb(int *arr, int size)
 {
 	int i;
 	int last;
@@ -32,7 +32,7 @@ void shift_bottom_to_top(int *arr, int size)
     arr[0] = last;
 }
 
-void rotate_both(int *a, int size_a, int *b, int size_b)
+void rr(int *a, int size_a, int *b, int size_b)
 {
     shift_bottom_to_top(a, size_a);
     shift_bottom_to_top(b, size_b);

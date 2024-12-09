@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pcruz <pcruz@student.42.fr>                +#+  +:+       +#+        */
+/*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 10:10:48 by pcruz             #+#    #+#             */
-/*   Updated: 2024/12/05 12:51:58 by pcruz            ###   ########.fr       */
+/*   Updated: 2024/12/09 14:36:27 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void move_top(int **stack_to, int *size_to, int **stack_from, int *size_from)
+void pa_pb(int **stack_to, int *size_to, int **stack_from, int *size_from)
 {
     int *new_stack_to;
     int *new_stack_from;
