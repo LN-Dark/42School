@@ -6,34 +6,46 @@
 /*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 10:11:02 by pcruz             #+#    #+#             */
-/*   Updated: 2024/12/09 15:38:25 by pbranco-         ###   ########.fr       */
+/*   Updated: 2024/12/11 08:56:33 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void ra(int *stack_a, int size_a) {
-    if (size_a > 1) {
-        int temp = stack_a[size_a - 1];
-        for (int i = size_a - 1; i > 0; i--) {
-            stack_a[i] = stack_a[i - 1];
-        }
-        stack_a[0] = temp;
-    }
+void	ra(struct s_node **head)
+{
+	struct s_node	*temp;
+	struct s_node	*first;
+
+	if (*head == NULL || (*head)->next == NULL)
+		return ;
+	temp = *head;
+	first = *head;
+	while (temp->next != NULL)
+		temp = temp->next;
+	*head = first->next;
+	first->next = NULL;
+	temp->next = first;
 }
 
-void rb(int *stack_b, int size_b) {
-    if (size_b > 1) {
-        int temp = stack_b[size_b - 1];
-        for (int i = size_b - 1; i > 0; i--) {
-            stack_b[i] = stack_b[i - 1];
-        }
-        stack_b[0] = temp;
-    }
+void	rb(struct s_node **head)
+{
+	struct s_node	*temp;
+	struct s_node	*first;
+
+	if (*head == NULL || (*head)->next == NULL)
+		return ;
+	temp = *head;
+	first = *head;
+	while (temp->next != NULL)
+		temp = temp->next;
+	*head = first->next;
+	first->next = NULL;
+	temp->next = first;
 }
 
-void rr(int *stack_a, int size_a, int *stack_b, int size_b) {
-    ra(stack_a, size_a);
-    rb(stack_b, size_b);
+void	rr(struct s_node **stack_a, struct s_node **stack_b)
+{
+	ra(stack_a);
+	rb(stack_b);
 }
-

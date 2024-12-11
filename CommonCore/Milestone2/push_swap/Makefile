@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pcruz <pcruz@student.42.fr>                +#+  +:+       +#+         #
+#    By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/29 13:02:14 by pbranco-          #+#    #+#              #
-#    Updated: 2024/12/05 10:29:42 by pcruz            ###   ########.fr        #
+#    Updated: 2024/12/11 08:58:06 by pbranco-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = src/main.c src/swap.c src/push.c src/rotate.c src/reverse.c
+SRCS = src/main.c src/swap.c src/push.c src/rotate.c src/reverse.c src/utils.c
 
 OBJS	= $(SRCS:.c=.o)
 
