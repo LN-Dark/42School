@@ -6,15 +6,15 @@
 /*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 08:57:22 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/12/11 09:59:56 by pbranco-         ###   ########.fr       */
+/*   Updated: 2024/12/11 11:11:24 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	pop(t_list **head)
+int	pop(t_stlist **head)
 {
-	t_list	*temp;
+	t_stlist	*temp;
 	int		popped_data;
 
 	if (*head == NULL)
@@ -26,17 +26,17 @@ int	pop(t_list **head)
 	return (popped_data);
 }
 
-void	push(t_list **head, int new_data)
+void	push(t_stlist **head, int new_data)
 {
-	t_list	*new_node;
+	t_stlist	*new_node;
 
-	new_node = (t_list *)malloc(sizeof(t_list));
+	new_node = (t_stlist *)malloc(sizeof(t_stlist));
 	new_node->value = new_data;
 	new_node->next = *head;
 	*head = new_node;
 }
 
-int	stack_size(t_list *head)
+int	stack_size(t_stlist *head)
 {
 	int	size;
 
@@ -49,9 +49,9 @@ int	stack_size(t_list *head)
 	return (size);
 }
 
-void	free_stack(t_list **head)
+void	free_stack(t_stlist **head)
 {
-	t_list	*temp;
+	t_stlist	*temp;
 
 	while (*head)
 	{

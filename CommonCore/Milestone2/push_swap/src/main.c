@@ -6,15 +6,15 @@
 /*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 10:10:48 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/12/11 10:08:18 by pbranco-         ###   ########.fr       */
+/*   Updated: 2024/12/11 11:32:32 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
 
-void assign_indices(t_list *stack)
+void assign_indices(t_stlist *stack)
 {
-    t_list *current;
-    t_list *compare;
+    t_stlist *current;
+    t_stlist *compare;
     int index;
 
     current = stack;
@@ -33,10 +33,10 @@ void assign_indices(t_list *stack)
     }
 }
 
-void radix_sort(t_list **stack_a, t_list **stack_b)
+void radix_sort(t_stlist **stack_a, t_stlist **stack_b)
 {
     int max_num, max_bits, i, j, size;
-    t_list *current;
+    t_stlist *current;
 
     size = stack_size(*stack_a);
     max_num = size - 1;
@@ -49,20 +49,26 @@ void radix_sort(t_list **stack_a, t_list **stack_b)
         for (j = 0; j < size; j++)
         {
             current = *stack_a;
-            if (((current->index >> i) & 1) == 1)
+            if (((current->index >> i) & 1) == 1){
                 ra(stack_a);
-            else
+                ft_printf("ra\n");
+            }
+            else{
                 pb(stack_a, stack_b);
+                ft_printf("pb\n");
+            }
         }
-        while (stack_size(*stack_b) != 0)
+        while (stack_size(*stack_b) != 0){
             pa(stack_a, stack_b);
+            ft_printf("pa\n");
+        }
     }
 }
 
 int main(int argc, char **argv)
 {
-    t_list *stack_a = NULL;
-    t_list *stack_b = NULL;
+    t_stlist *stack_a = NULL;
+    t_stlist *stack_b = NULL;
     int i;
 
     if (argc < 2)

@@ -6,16 +6,16 @@
 /*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 10:10:29 by pcruz             #+#    #+#             */
-/*   Updated: 2024/12/11 09:57:16 by pbranco-         ###   ########.fr       */
+/*   Updated: 2024/12/11 11:11:39 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	sa(t_list **head)
+void	sa(t_stlist **head)
 {
-	t_list	*first;
-	t_list	*second;
+	t_stlist	*first;
+	t_stlist	*second;
 
 	if (*head != NULL && (*head)->next != NULL)
 	{
@@ -27,10 +27,10 @@ void	sa(t_list **head)
 	}
 }
 
-void	sb(t_list **head)
+void	sb(t_stlist **head)
 {
-	t_list	*first;
-	t_list	*second;
+	t_stlist	*first;
+	t_stlist	*second;
 
 	if (*head != NULL && (*head)->next != NULL)
 	{
@@ -42,7 +42,7 @@ void	sb(t_list **head)
 	}
 }
 
-void	ss(t_list **stack_a, t_list **stack_b)
+void	ss(t_stlist **stack_a, t_stlist **stack_b)
 {
 	sa(stack_a);
 	sb(stack_b);
