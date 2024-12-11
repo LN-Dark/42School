@@ -6,16 +6,14 @@
 /*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 15:28:09 by pcruz             #+#    #+#             */
-/*   Updated: 2024/12/09 16:34:22 by pbranco-         ###   ########.fr       */
+/*   Updated: 2024/12/11 10:00:18 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-
-
-int main(int argc, char **argv) {
-
-
-    return 0;
+int main(int argc, char **argv)
+{
+    
+    return (0);
 }

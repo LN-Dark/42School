@@ -6,30 +6,34 @@
 /*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 10:10:48 by pcruz             #+#    #+#             */
-/*   Updated: 2024/12/11 08:57:31 by pbranco-         ###   ########.fr       */
+/*   Updated: 2024/12/11 10:00:14 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	pa(struct s_node **stack_a, struct s_node **stack_b)
+void	pa(t_list **stack_a, t_list **stack_b)
 {
-	int	data;
+	t_list	*temp;
 
 	if (*stack_b != NULL)
 	{
-		data = pop(stack_b);
-		push(stack_a, data);
+		temp = *stack_b;
+		*stack_b = (*stack_b)->next;
+		temp->next = *stack_a;
+		*stack_a = temp;
 	}
 }
 
-void	pb(struct s_node **stack_a, struct s_node **stack_b)
+void	pb(t_list **stack_a, t_list **stack_b)
 {
-	int	data;
+	t_list	*temp;
 
 	if (*stack_a != NULL)
 	{
-		data = pop(stack_a);
-		push(stack_b, data);
+		temp = *stack_a;
+		*stack_a = (*stack_a)->next;
+		temp->next = *stack_b;
+		*stack_b = temp;
 	}
 }

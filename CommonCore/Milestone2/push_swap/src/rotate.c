@@ -6,16 +6,16 @@
 /*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 10:11:02 by pcruz             #+#    #+#             */
-/*   Updated: 2024/12/11 08:56:33 by pbranco-         ###   ########.fr       */
+/*   Updated: 2024/12/11 09:56:26 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	ra(struct s_node **head)
+void	ra(t_list **head)
 {
-	struct s_node	*temp;
-	struct s_node	*first;
+	t_list	*temp;
+	t_list	*first;
 
 	if (*head == NULL || (*head)->next == NULL)
 		return ;
@@ -28,10 +28,10 @@ void	ra(struct s_node **head)
 	temp->next = first;
 }
 
-void	rb(struct s_node **head)
+void	rb(t_list **head)
 {
-	struct s_node	*temp;
-	struct s_node	*first;
+	t_list	*temp;
+	t_list	*first;
 
 	if (*head == NULL || (*head)->next == NULL)
 		return ;
@@ -44,7 +44,7 @@ void	rb(struct s_node **head)
 	temp->next = first;
 }
 
-void	rr(struct s_node **stack_a, struct s_node **stack_b)
+void	rr(t_list **stack_a, t_list **stack_b)
 {
 	ra(stack_a);
 	rb(stack_b);

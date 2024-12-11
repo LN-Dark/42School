@@ -6,7 +6,7 @@
 /*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 15:28:32 by pcruz             #+#    #+#             */
-/*   Updated: 2024/12/11 08:55:26 by pbranco-         ###   ########.fr       */
+/*   Updated: 2024/12/11 09:59:07 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,27 @@
 
 # include "../libft/libft.h"
 
-struct	s_node
+typedef struct s_list
 {
-	int			data;
-	struct Node	*next;
-}
+    int             value;
+    int             index;
+    struct s_list   *next;
+}               t_list;
 
-void	rr(struct Node **stack_a, struct Node **stack_b);
-void	rb(struct Node **head);
-void	ra(struct Node **head);
-void	rra(struct Node **head);
-void	rrb(struct Node **head);
-void	rrr(struct Node **stack_a, struct Node **stack_b);
-void	pa(struct Node **stack_a, struct Node **stack_b);
-void	pb(struct Node **stack_a, struct Node **stack_b);
-void	sa(struct Node **head);
-void	sb(struct Node **head);
-void	ss(struct Node **stack_a, struct Node **stack_b);
-void	push(struct Node **head, int new_data);
-int		pop(struct Node **head);
+void	ss(t_list **stack_a, t_list **stack_b)
+void	sb(t_list **head)
+void	sa(t_list **head)
+void	ra(t_list **head)
+void	rb(t_list **head)
+void	rr(t_list **stack_a, t_list **stack_b)
+void	rra(t_list **head)
+void	rrb(t_list **head)
+void	rrr(t_list **stack_a, t_list **stack_b)
+void	push(t_list **head, int new_data)
+void	free_stack(t_list **head)
+void	pa(t_list **stack_a, t_list **stack_b)
+void	pb(t_list **stack_a, t_list **stack_b)
+int		pop(t_list **head)
+int		stack_size(t_list *head)
 
 #endif
