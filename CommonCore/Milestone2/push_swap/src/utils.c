@@ -6,7 +6,7 @@
 /*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 08:57:22 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/12/12 09:08:11 by pbranco-         ###   ########.fr       */
+/*   Updated: 2024/12/12 10:02:15 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	pop(t_stlist **head)
 {
 	t_stlist	*temp;
-	int		popped_data;
+	int			popped_data;
 
 	if (*head == NULL)
 		return (-1);
