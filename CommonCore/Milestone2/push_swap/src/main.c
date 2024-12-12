@@ -6,7 +6,7 @@
 /*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 10:10:48 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/12/11 11:32:32 by pbranco-         ###   ########.fr       */
+/*   Updated: 2024/12/12 08:52:51 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
@@ -35,21 +35,20 @@ void assign_indices(t_stlist *stack)
 
 void radix_sort(t_stlist **stack_a, t_stlist **stack_b)
 {
-    int max_num, max_bits, i, j, size;
-    t_stlist *current;
+    int i;
+    int j;
+    int size;
+    t_stlist *temp;
 
+    i = 0;
     size = stack_size(*stack_a);
-    max_num = size - 1;
-    max_bits = 0;
-    while ((max_num >> max_bits) != 0)
-        max_bits++;
-
-    for (i = 0; i < max_bits; i++)
+    while (i < 32 && ft_check_sort(*stack_a))
     {
-        for (j = 0; j < size; j++)
+        j = 0;
+        while (j++ < size)
         {
-            current = *stack_a;
-            if (((current->index >> i) & 1) == 1){
+            temp = *stack_a;
+            if ((temp->index >> i) & 1){
                 ra(stack_a);
                 ft_printf("ra\n");
             }
@@ -58,10 +57,11 @@ void radix_sort(t_stlist **stack_a, t_stlist **stack_b)
                 ft_printf("pb\n");
             }
         }
-        while (stack_size(*stack_b) != 0){
+        while (*stack_b){
             pa(stack_a, stack_b);
             ft_printf("pa\n");
         }
+        i++;
     }
 }
 
@@ -78,14 +78,6 @@ int main(int argc, char **argv)
 
     assign_indices(stack_a);
     radix_sort(&stack_a, &stack_b);
-
-    // Print the sorted stack
-    while (stack_a)
-    {
-        printf("%d\n", stack_a->value);
-        stack_a = stack_a->next;
-    }
-
     free_stack(&stack_a);
     return (0);
 }
