@@ -6,10 +6,21 @@
 /*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 10:10:48 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/12/12 08:52:51 by pbranco-         ###   ########.fr       */
+/*   Updated: 2024/12/12 09:14:09 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
+
+int is_sorted(t_stlist *head)
+{
+    while (head && head->next)
+    {
+        if (head->value > head->next->value)
+            return (0);
+        head = head->next;
+    }
+    return (1);
+}
 
 void assign_indices(t_stlist *stack)
 {
@@ -42,7 +53,7 @@ void radix_sort(t_stlist **stack_a, t_stlist **stack_b)
 
     i = 0;
     size = stack_size(*stack_a);
-    while (i < 32 && ft_check_sort(*stack_a))
+    while (i < 32 && is_sorted(*stack_a) != 1)
     {
         j = 0;
         while (j++ < size)
@@ -73,11 +84,13 @@ int main(int argc, char **argv)
 
     if (argc < 2)
         return (1);
+    
     for (i = 1; i < argc; i++)
         push(&stack_a, ft_atoi(argv[i]));
-
     assign_indices(stack_a);
     radix_sort(&stack_a, &stack_b);
+
     free_stack(&stack_a);
+    free_stack(&stack_b);
     return (0);
 }
