@@ -6,7 +6,7 @@
 /*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 15:28:32 by pcruz             #+#    #+#             */
-/*   Updated: 2024/12/12 08:32:45 by pbranco-         ###   ########.fr       */
+/*   Updated: 2024/12/12 11:33:32 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ void	push(t_stlist **head, int new_data);
 void	free_stack(t_stlist **head);
 void	pa(t_stlist **stack_a, t_stlist **stack_b);
 void	pb(t_stlist **stack_a, t_stlist **stack_b);
-int		pop(t_stlist **head);
 int		stack_size(t_stlist *head);
 
 #endif

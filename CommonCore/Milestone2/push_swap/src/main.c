@@ -6,7 +6,7 @@
 /*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 10:10:48 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/12/12 10:02:01 by pbranco-         ###   ########.fr       */
+/*   Updated: 2024/12/12 11:40:09 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
@@ -86,6 +86,17 @@ void	radix_sort(t_stlist **stack_a, t_stlist **stack_b)
 	free_stack(stack_b);
 }
 
+int	ft_is_repeated(t_stlist	*stack_a, int nb)
+{
+	while (stack_a)
+	{
+		if(stack_a->value == nb)
+			return(1);
+		stack_a = stack_a->next;
+	}
+	return (0);
+}
+
 int	main(int argc, char **argv)
 {
 	t_stlist	*stack_a;
@@ -99,11 +110,19 @@ int	main(int argc, char **argv)
 	stack_b = NULL;
 	while (i < argc)
 	{
-		push(&stack_a, ft_atoi(argv[i]));
+		if (ft_is_repeated(stack_a, ft_atoi(argv[i])) != 1)
+			push(&stack_a, ft_atoi(argv[i]));
+		else
+		{
+			ft_printf("ERROR\n");
+			return (0);
+		}
+		
 		i++;
 	}
 	assign_indices(stack_a);
 	radix_sort(&stack_a, &stack_b);
+
 	free_stack(&stack_a);
 	return (0);
 }
