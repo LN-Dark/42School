@@ -6,7 +6,7 @@
 /*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 10:10:48 by pcruz             #+#    #+#             */
-/*   Updated: 2024/12/12 10:32:39 by pbranco-         ###   ########.fr       */
+/*   Updated: 2024/12/13 10:16:18 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	pa(t_stlist **stack_a, t_stlist **stack_b)
 		temp->next = *stack_a;
 		*stack_a = temp;
 	}
+	ft_printf("pa\n");
 }
 
 void	pb(t_stlist **stack_a, t_stlist **stack_b)
@@ -36,4 +37,5 @@ void	pb(t_stlist **stack_a, t_stlist **stack_b)
 		temp->next = *stack_b;
 		*stack_b = temp;
 	}
+	ft_printf("pb\n");
 }

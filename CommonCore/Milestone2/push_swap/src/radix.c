@@ -6,7 +6,7 @@
 /*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 14:06:04 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/12/12 14:14:51 by pbranco-         ###   ########.fr       */
+/*   Updated: 2024/12/13 10:16:07 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,9 @@ void	bitwise_sort(t_stlist **stack_a, t_stlist **stack_b, int i)
 	{
 		temp = *stack_a;
 		if ((temp->index >> i) & 1)
-		{
 			ra(stack_a);
-			ft_printf("ra\n");
-		}
 		else
-		{
 			pb(stack_a, stack_b);
-			ft_printf("pb\n");
-		}
 	}
 }
 
@@ -45,10 +39,7 @@ void	radix_sort(t_stlist **stack_a, t_stlist **stack_b)
 	{
 		bitwise_sort(stack_a, stack_b, i);
 		while (*stack_b)
-		{
 			pa(stack_a, stack_b);
-			ft_printf("pa\n");
-		}
 		i++;
 	}
 	free_stack(stack_b);

@@ -6,11 +6,11 @@
 #    By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/29 13:02:14 by pbranco-          #+#    #+#              #
-#    Updated: 2024/12/12 14:08:43 by pbranco-         ###   ########.fr        #
+#    Updated: 2024/12/13 08:47:08 by pbranco-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = src/main.c src/push.c src/rotate.c src/utils.c src/radix.c
+SRCS = src/main.c src/push.c src/rotate.c src/utils.c src/radix.c src/small_sort.c src/reverse.c src/swap.c
 
 OBJS	= $(SRCS:.c=.o)
 

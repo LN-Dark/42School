@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   reverse.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/05 10:11:02 by pcruz             #+#    #+#             */
-/*   Updated: 2024/12/13 10:16:30 by pbranco-         ###   ########.fr       */
+/*   Created: 2024/12/13 08:44:14 by pbranco-          #+#    #+#             */
+/*   Updated: 2024/12/13 10:15:38 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	ra(t_stlist **head)
+void	rra(t_stlist **head)
 {
 	t_stlist	*temp;
-	t_stlist	*first;
-
+	t_stlist	*prev;
 	if (*head == NULL || (*head)->next == NULL)
 		return ;
 	temp = *head;
-	first = *head;
+	prev = NULL;
 	while (temp->next != NULL)
+	{
+		prev = temp;
 		temp = temp->next;
-	*head = first->next;
-	first->next = NULL;
-	temp->next = first;
-	ft_printf("ra\n");
+	}
+	prev->next = NULL;
+	temp->next = *head;
+	*head = temp;
+	ft_printf("rra\n");
 }

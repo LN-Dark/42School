@@ -6,7 +6,7 @@
 /*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 10:10:48 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/12/12 14:18:49 by pbranco-         ###   ########.fr       */
+/*   Updated: 2024/12/13 10:17:48 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,20 @@ int	process_input(int argc, char **argv, t_stlist **stack_a, int method)
 		return (process_input_method_1(argc, argv, stack_a));
 }
 
-void	sort_and_cleanup(t_stlist **stack_a, t_stlist **stack_b)
+void sort_and_cleanup(t_stlist **stack_a, t_stlist **stack_b)
 {
-	assign_indices(*stack_a);
-	radix_sort(stack_a, stack_b);
-	free_stack(stack_a);
+    int size = stack_size(*stack_a);
+
+    if (size == 2)
+        sort_two(stack_a);
+    else if (size == 3)
+        sort_three(stack_a);
+    else
+    {
+        assign_indices(*stack_a);
+        radix_sort(stack_a, stack_b);
+    }
+    free_stack(stack_a);
 }
 
 int	main(int argc, char **argv)

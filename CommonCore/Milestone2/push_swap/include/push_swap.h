@@ -6,7 +6,7 @@
 /*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 15:28:32 by pcruz             #+#    #+#             */
-/*   Updated: 2024/12/12 14:07:39 by pbranco-         ###   ########.fr       */
+/*   Updated: 2024/12/13 10:18:01 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,16 @@ void	free_stack(t_stlist **head);
 void	assign_indices(t_stlist *stack);
 void	radix_sort(t_stlist **stack_a, t_stlist **stack_b);
 void	bitwise_sort(t_stlist **stack_a, t_stlist **stack_b, int i);
+void	sort_two(t_stlist **stack_a);
+void	sort_three(t_stlist **stack_a);
+void	rra(t_stlist **head);
+void	sa(t_stlist **head);
 int		stack_size(t_stlist *head);
 int		is_sorted(t_stlist *head);
 int		process_input_method_1(int argc, char **argv, t_stlist **stack_a);
 int		process_input_method_0(int argc, char **argv, t_stlist **stack_a);
 int		ft_is_repeated(t_stlist	*stack_a, int nb);
+int		find_min_index(t_stlist *stack);
 
 
 #endif
