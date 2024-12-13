@@ -6,13 +6,13 @@
 /*   By: pcruz <pcruz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 08:41:12 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/12/13 13:53:43 by pcruz            ###   ########.fr       */
+/*   Updated: 2024/12/13 16:27:29 by pcruz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void sort_two(t_stlist **stack_a)
+void	sort_two(t_stlist **stack_a)
 {
 	if ((*stack_a)->value > (*stack_a)->next->value)
 		sa(stack_a);
@@ -37,20 +37,21 @@ void	sort_three(t_stlist **stack_a)
 	else if (b > a && a > c)
 		rra(stack_a);
 	else if (b > c && c > a)
-    {
+	{
 		sa(stack_a);
 		ra(stack_a);
 	}
 	else if (c > a && c > b)
 		sa(stack_a);
 }
+
 void	find_and_move_min(t_stlist **stack_a)
 {
 	int			min;
 	t_stlist	*temp;
 
 	if (*stack_a == NULL)
-		return;
+		return ;
 	min = (*stack_a)->value;
 	temp = *stack_a;
 	while (temp)

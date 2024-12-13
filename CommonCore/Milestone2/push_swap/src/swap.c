@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pcruz <pcruz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 08:46:38 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/12/13 10:15:31 by pbranco-         ###   ########.fr       */
+/*   Updated: 2024/12/13 16:27:45 by pcruz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	sa(t_stlist **head)
 {
 	t_stlist	*first;
 	t_stlist	*second;
+
 	if (*head != NULL && (*head)->next != NULL)
 	{
 		first = *head;
