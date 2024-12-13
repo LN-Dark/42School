@@ -6,7 +6,7 @@
 /*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 15:28:32 by pcruz             #+#    #+#             */
-/*   Updated: 2024/12/13 10:18:01 by pbranco-         ###   ########.fr       */
+/*   Updated: 2024/12/13 10:45:00 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ void	sort_two(t_stlist **stack_a);
 void	sort_three(t_stlist **stack_a);
 void	rra(t_stlist **head);
 void	sa(t_stlist **head);
+void	sort_four(t_stlist **stack_a, t_stlist **stack_b);
+void	sort_five(t_stlist **stack_a, t_stlist **stack_b);
 int		stack_size(t_stlist *head);
 int		is_sorted(t_stlist *head);
 int		process_input_method_1(int argc, char **argv, t_stlist **stack_a);
