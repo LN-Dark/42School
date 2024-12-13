@@ -6,7 +6,7 @@
 /*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 15:28:32 by pcruz             #+#    #+#             */
-/*   Updated: 2024/12/12 11:33:32 by pbranco-         ###   ########.fr       */
+/*   Updated: 2024/12/12 14:07:39 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,19 @@ typedef struct s_stlist
     struct s_stlist   *next;
 }               t_stlist;
 
-void	ss(t_stlist **stack_a, t_stlist **stack_b);
-void	sb(t_stlist **head);
-void	sa(t_stlist **head);
 void	ra(t_stlist **head);
-void	rb(t_stlist **head);
-void	rr(t_stlist **stack_a, t_stlist **stack_b);
-void	rra(t_stlist **head);
-void	rrb(t_stlist **head);
-void	rrr(t_stlist **stack_a, t_stlist **stack_b);
-void	push(t_stlist **head, int new_data);
-void	free_stack(t_stlist **head);
 void	pa(t_stlist **stack_a, t_stlist **stack_b);
 void	pb(t_stlist **stack_a, t_stlist **stack_b);
+void	push(t_stlist **head, int new_data);
+void	free_stack(t_stlist **head);
+void	assign_indices(t_stlist *stack);
+void	radix_sort(t_stlist **stack_a, t_stlist **stack_b);
+void	bitwise_sort(t_stlist **stack_a, t_stlist **stack_b, int i);
 int		stack_size(t_stlist *head);
+int		is_sorted(t_stlist *head);
+int		process_input_method_1(int argc, char **argv, t_stlist **stack_a);
+int		process_input_method_0(int argc, char **argv, t_stlist **stack_a);
+int		ft_is_repeated(t_stlist	*stack_a, int nb);
+
 
 #endif
