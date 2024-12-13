@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   radix.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pcruz <pcruz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 14:06:04 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/12/13 10:16:07 by pbranco-         ###   ########.fr       */
+/*   Updated: 2024/12/13 16:02:55 by pcruz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,13 +68,16 @@ int	process_input_method_0(int argc, char **argv, t_stlist **stack_a)
 		j = 0;
 		while (argv[i][j])
 		{
-			if (ft_isdigit(argv[i][j]))
+			if (ft_isdigitplussign(argv[i][j]))
 				j++;
 			else
 				return (1);
 		}
-		if (ft_is_repeated(*stack_a, ft_atoi(argv[i])) != 1)
-			push(stack_a, ft_atoi(argv[i]));
+		if (ft_is_repeated(*stack_a, ft_atol(argv[i])) != 1)
+			if (ft_atol(argv[i]) >= -2147483648 && ft_atol(argv[i]) <= 2147483647)
+				push(stack_a, ft_atoi(argv[i]));
+			else
+				return (1);
 		else
 			return (1);
 	}
@@ -93,13 +96,16 @@ int	process_input_method_1(int argc, char **argv, t_stlist **stack_a)
 		j = 0;
 		while (argv[i][j])
 		{
-			if (ft_isdigit(argv[i][j]))
+			if (ft_isdigitplussign(argv[i][j]))
 				j++;
 			else
 				return (1);
 		}
-		if (ft_is_repeated(*stack_a, ft_atoi(argv[i])) != 1)
-			push(stack_a, ft_atoi(argv[i]));
+		if (ft_is_repeated(*stack_a, ft_atol(argv[i])) != 1)
+			if (ft_atol(argv[i]) >= -2147483648 && ft_atol(argv[i]) <= 2147483647)
+				push(stack_a, ft_atoi(argv[i]));
+			else
+				return (1);
 		else
 			return (1);
 	}

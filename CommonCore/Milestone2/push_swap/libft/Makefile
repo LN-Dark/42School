@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+         #
+#    By: pcruz <pcruz@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/18 10:37:54 by pbranco-          #+#    #+#              #
-#    Updated: 2024/10/18 12:50:15 by pbranco-         ###   ########.fr        #
+#    Updated: 2024/12/13 16:00:21 by pcruz            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,8 @@ SRCS	= ft_isalpha.c \
 		ft_memcmp.c \
 		ft_strnstr.c \
 		ft_atoi.c \
+		ft_atol.c \
+		ft_isdigitplussign.c \
 		ft_substr.c \
 		ft_strjoin.c \
 		ft_strtrim.c \

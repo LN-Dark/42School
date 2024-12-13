@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   small_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pcruz <pcruz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 08:41:12 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/12/13 10:56:17 by pbranco-         ###   ########.fr       */
+/*   Updated: 2024/12/13 13:53:43 by pcruz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,49 +44,37 @@ void	sort_three(t_stlist **stack_a)
 	else if (c > a && c > b)
 		sa(stack_a);
 }
-void find_and_move_min(t_stlist **stack_a)
+void	find_and_move_min(t_stlist **stack_a)
 {
-    int min;
-    t_stlist *temp;
-    
-    if (*stack_a == NULL)
-        return;
-    min = (*stack_a)->value;
-    temp = *stack_a;
-    while (temp)
-    {
-        if (temp->value < min)
-            min = temp->value;
-        temp = temp->next;
-    }
-    while ((*stack_a) && (*stack_a)->value != min)
-        ra(stack_a);
+	int			min;
+	t_stlist	*temp;
+
+	if (*stack_a == NULL)
+		return;
+	min = (*stack_a)->value;
+	temp = *stack_a;
+	while (temp)
+	{
+		if (temp->value < min)
+			min = temp->value;
+		temp = temp->next;
+	}
+	while ((*stack_a) && (*stack_a)->value != min)
+		ra(stack_a);
 }
 
 void	sort_four(t_stlist **stack_a, t_stlist **stack_b)
 {
-	int	count;
-    
-	count = 4;
-	while (count-- > 0)
-	{
-		find_and_move_min(stack_a);
-		pb(stack_a, stack_b);
-	}
-	while (*stack_b)
-		pa(stack_a, stack_b);
+	find_and_move_min(stack_a);
+	pb(stack_a, stack_b);
+	sort_three(stack_a);
+	pa(stack_a, stack_b);
 }
 
-void sort_five(t_stlist **stack_a, t_stlist **stack_b)
+void	sort_five(t_stlist **stack_a, t_stlist **stack_b)
 {
-    int count = 5;
-
-    while (count-- > 1)
-    {
-        find_and_move_min(stack_a);
-        pb(stack_a, stack_b);
-    }
-    sort_four(stack_a, stack_b);
-    while (*stack_b)
-        pa(stack_a, stack_b);
+	find_and_move_min(stack_a);
+	pb(stack_a, stack_b);
+	sort_four(stack_a, stack_b);
+	pa(stack_a, stack_b);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pcruz <pcruz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 08:58:45 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/11/14 11:29:59 by pbranco-         ###   ########.fr       */
+/*   Updated: 2024/12/13 16:02:04 by pcruz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int		ft_isalnum(int i);
 int		ft_isalpha(int i);
 int		ft_isascii(int i);
 int		ft_isdigit(int i);
+int		ft_isdigitplussign(int i);
 int		ft_isprint(int i);
 int		ft_printf(const char *format, ...);
 int		ft_printc(int c);
@@ -91,6 +92,8 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 
 int		ft_lstsize(t_list *lst);
+
+long	ft_atol(const char *str);
 
 t_list	*ft_lstnew(void *content);
 t_list	*ft_lstlast(t_list *lst);
