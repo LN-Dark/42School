@@ -17,10 +17,10 @@
 
 typedef struct s_stlist
 {
-    int             value;
-    int             index;
-    struct s_stlist   *next;
-}               t_stlist;
+	struct s_stlist	*next;
+	int				value;
+	int				index;
+}	t_stlist;
 
 void	ra(t_stlist **head);
 void	pa(t_stlist **stack_a, t_stlist **stack_b);
@@ -42,6 +42,5 @@ int		process_input_method_1(int argc, char **argv, t_stlist **stack_a);
 int		process_input_method_0(int argc, char **argv, t_stlist **stack_a);
 int		ft_is_repeated(t_stlist	*stack_a, int nb);
 int		find_min_index(t_stlist *stack);
-
 
 #endif

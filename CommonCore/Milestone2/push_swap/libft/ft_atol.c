@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pcruz <pcruz@student.42.fr>                +#+  +:+       +#+        */
+/*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 09:00:00 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/12/13 15:53:29 by pcruz            ###   ########.fr       */
+/*   Updated: 2024/12/16 08:38:37 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ long	ft_atol(const char *str)
 		count += str[i] - 48;
 		i++;
 	}
+	if (str[i] > 57 || str[i] == 43 || str[i] == 45)
+		return (-2147483649);
 	count *= signal;
 	return (count);
 }

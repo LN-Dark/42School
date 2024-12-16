@@ -6,12 +6,12 @@
 /*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 10:10:44 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/10/17 11:37:57 by pbranco-         ###   ########.fr       */
+/*   Updated: 2024/12/16 08:21:40 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-static void	ft_free(char **strs)
+void	ft_free(char **strs)
 {
 	int	i;
 
