@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reverse.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pcruz <pcruz@student.42.fr>                +#+  +:+       +#+        */
+/*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 08:44:14 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/12/13 16:26:29 by pcruz            ###   ########.fr       */
+/*   Updated: 2024/12/16 12:56:09 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,17 @@ void	rra(t_stlist **head)
 	temp->next = *head;
 	*head = temp;
 	ft_printf("rra\n");
+}
+
+int	is_reverse_sorted(t_stlist *stack)
+{
+	if (!stack || !stack->next)
+		return (1);
+	while (stack->next)
+	{
+		if (stack->value < stack->next->value)
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
 }

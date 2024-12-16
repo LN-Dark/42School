@@ -6,7 +6,7 @@
 /*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 15:28:32 by pcruz             #+#    #+#             */
-/*   Updated: 2024/12/13 10:45:00 by pbranco-         ###   ########.fr       */
+/*   Updated: 2024/12/16 13:05:57 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,6 @@ int		process_input_method_1(int argc, char **argv, t_stlist **stack_a);
 int		process_input_method_0(int argc, char **argv, t_stlist **stack_a);
 int		ft_is_repeated(t_stlist	*stack_a, int nb);
 int		find_min_index(t_stlist *stack);
+int		is_reverse_sorted(t_stlist *stack);
 
 #endif

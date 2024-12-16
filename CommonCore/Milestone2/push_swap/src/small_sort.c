@@ -6,7 +6,7 @@
 /*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 08:41:12 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/12/16 10:18:38 by pbranco-         ###   ########.fr       */
+/*   Updated: 2024/12/16 13:13:59 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,21 +27,21 @@ void	sort_three(t_stlist **stack_a)
 	a = (*stack_a)->value;
 	b = (*stack_a)->next->value;
 	c = (*stack_a)->next->next->value;
-	if (a > b && b > c)
+	if (a > b && b > c && !is_sorted(*stack_a))
 	{
 		sa(stack_a);
 		rra(stack_a);
 	}
-	else if (a > c && b < c)
+	else if (a > c && b < c && !is_sorted(*stack_a))
 		ra(stack_a);
-	else if (b > a && a > c)
+	else if (b > a && a > c && !is_sorted(*stack_a))
 		rra(stack_a);
-	else if (b > c && c > a)
+	else if (b > c && c > a && !is_sorted(*stack_a))
 	{
 		sa(stack_a);
 		ra(stack_a);
 	}
-	else if (c > a && c > b)
+	else if (c > a && c > b && !is_sorted(*stack_a))
 		sa(stack_a);
 }
 
@@ -62,10 +62,10 @@ void	find_and_move_min(t_stlist **stack_a)
 			min = temp->value;
 		temp = temp->next;
 	}
-	if (!temp)
+	if (is_reverse_sorted(*stack_a))
 	{
-		rra(stack_a);
 		rracheck = 1;
+		rra(stack_a);
 	}
 	while ((*stack_a) && (*stack_a)->value != min && rracheck == 0)
 		ra(stack_a);
