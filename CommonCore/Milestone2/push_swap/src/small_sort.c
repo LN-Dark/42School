@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   small_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pcruz <pcruz@student.42.fr>                +#+  +:+       +#+        */
+/*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 08:41:12 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/12/13 16:27:29 by pcruz            ###   ########.fr       */
+/*   Updated: 2024/12/16 10:18:38 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,12 @@ void	sort_three(t_stlist **stack_a)
 void	find_and_move_min(t_stlist **stack_a)
 {
 	int			min;
+	int			rracheck;
 	t_stlist	*temp;
 
 	if (*stack_a == NULL)
 		return ;
+	rracheck = 0;
 	min = (*stack_a)->value;
 	temp = *stack_a;
 	while (temp)
@@ -60,7 +62,12 @@ void	find_and_move_min(t_stlist **stack_a)
 			min = temp->value;
 		temp = temp->next;
 	}
-	while ((*stack_a) && (*stack_a)->value != min)
+	if (!temp)
+	{
+		rra(stack_a);
+		rracheck = 1;
+	}
+	while ((*stack_a) && (*stack_a)->value != min && rracheck == 0)
 		ra(stack_a);
 }
 
