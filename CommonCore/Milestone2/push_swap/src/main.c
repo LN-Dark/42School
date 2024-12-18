@@ -57,12 +57,12 @@ int	handle_input(int argc, char **argv, t_stlist **stack_a, t_stlist **stack_b)
 			return (ft_free(str), free_stack(stack_a), 0);
 		else if (process_input(i, str, stack_a, 1) == 1)
 			return (ft_free(str), free_stack(stack_a), ft_printf("Error\n"), 0);
+		ft_free(str);
 	}
 	else if (argc > 2)
 		if (process_input(argc, argv, stack_a, 0) == 1)
 			return (free_stack(stack_a), ft_printf("Error\n"), 0);
 	sort_and_cleanup(stack_a, stack_b);
-	ft_free(str);
 	return (0);
 }
 
