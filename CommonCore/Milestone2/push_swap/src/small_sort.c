@@ -73,16 +73,22 @@ void	find_and_move_min(t_stlist **stack_a)
 
 void	sort_four(t_stlist **stack_a, t_stlist **stack_b)
 {
-	find_and_move_min(stack_a);
-	pb(stack_a, stack_b);
-	sort_three(stack_a);
-	pa(stack_a, stack_b);
+	if (!is_sorted(*stack_a))
+	{
+		find_and_move_min(stack_a);
+		pb(stack_a, stack_b);
+		sort_three(stack_a);
+		pa(stack_a, stack_b);
+	}
 }
 
 void	sort_five(t_stlist **stack_a, t_stlist **stack_b)
 {
-	find_and_move_min(stack_a);
-	pb(stack_a, stack_b);
-	sort_four(stack_a, stack_b);
-	pa(stack_a, stack_b);
+	if (!is_sorted(*stack_a))
+	{
+		find_and_move_min(stack_a);
+		pb(stack_a, stack_b);
+		sort_four(stack_a, stack_b);
+		pa(stack_a, stack_b);
+	}
 }
