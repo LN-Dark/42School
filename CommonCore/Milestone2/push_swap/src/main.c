@@ -6,7 +6,7 @@
 /*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 10:10:48 by pbranco-          #+#    #+#             */
-/*   Updated: 2024/12/18 11:42:01 by pbranco-         ###   ########.fr       */
+/*   Updated: 2024/12/19 10:49:42 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,10 @@ int	handle_input(int argc, char **argv, t_stlist **stack_a, t_stlist **stack_b)
 		i = 0;
 		while (str[i])
 			i++;
-		if (i == 1)
+		if (i == 1 && process_input(i, str, stack_a, 1) == 0)
 			return (ft_free(str), free_stack(stack_a), 0);
+		else if (i == 1 && process_input(i, str, stack_a, 1) == 1)
+			return (ft_free(str), free_stack(stack_a), ft_printf("Error\n"), 0);
 		else if (process_input(i, str, stack_a, 1) == 1)
 			return (ft_free(str), free_stack(stack_a), ft_printf("Error\n"), 0);
 		ft_free(str);
