@@ -7,3 +7,5 @@ To use Grademe, follow these steps:
 3. Run the following command: make
 4. Enjoy using Grademe!
 
+For more information, visit the original repository. [GradeMe](https://grademe.fr/)
+
