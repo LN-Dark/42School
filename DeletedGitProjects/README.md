@@ -9,3 +9,7 @@ To use Grademe, follow these steps:
 
 For more information, visit the original repository. [GradeMe](https://grademe.fr/)
 
+
+# get_next_line_exam3.c
+
+Get_next_line for EXAM3 CommonCore
