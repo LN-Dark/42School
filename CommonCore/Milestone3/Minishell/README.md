@@ -234,4 +234,6 @@ create a file
 append to a file
 ```
 
-- **CREDITS:** [Walter](https://github.com/waltergcc/42-minishell)
+- **TESTS CREDITS:** [Walter](https://github.com/waltergcc/42-minishell)
+
+- **MinishellTests.xlsx CREDITS:** [	Daniel Junho](https://github.com/djunho)
