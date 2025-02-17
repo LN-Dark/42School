@@ -234,4 +234,4 @@ create a file
 append to a file
 ```
 
-Este documento cobre os testes essenciais e cenários específicos do minishell, garantindo conformidade com a implementação esperada.
+- **CREDITS:** [Walter](https://github.com/waltergcc/42-minishell)
