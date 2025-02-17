@@ -7,4 +7,5 @@
 - **42 Evals:** [42evals.com](https://www.42evals.com)
 - **Francinette:** [GitHub Repository](https://github.com/WaRtr0/francinette-image)
 - **push_swap Visualizer:** [GitHub Repository](https://github.com/o-reo/push_swap_visualizer)
+- **Minishell Tester:** [GitHub Repository](https://github.com/LucasKuhn/minishell_tester)
 
