@@ -236,4 +236,4 @@ append to a file
 
 - **TESTS CREDITS:** [Walter](https://github.com/waltergcc/42-minishell)
 
-- **MinishellTests.xlsx CREDITS:** [	Daniel Junho](https://github.com/djunho)
+- **MinishellTests.xlsx CREDITS:** [	Daniel Junho](https://github.com/djunho) && [Hugo Lopes](https://github.com/Hugofslopes)
