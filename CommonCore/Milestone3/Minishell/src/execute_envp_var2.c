@@ -6,7 +6,7 @@
 /*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 10:42:48 by hfilipe-          #+#    #+#             */
-/*   Updated: 2025/03/31 10:42:49 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2025/03/31 11:31:24 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	found_var(char *input2, t_ms **ms, size_t i, char *command)
 {
 	char	*input;
 
-	input = ft_strtrim((*ms)->envp[i], input2);
+	input = trim_str_export2(ms, i);
 	free(input2);
 	input2 = ft_strtrim(input, "=");
 	free(input);

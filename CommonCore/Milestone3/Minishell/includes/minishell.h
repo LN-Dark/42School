@@ -408,4 +408,5 @@ void	print_error_export(size_t *i, size_t l, char *input);
 void	errors_with_quotes3_1(char *input, size_t *i, int *error, int *found);
 int		errors_e_out(char **input_trim, t_ms **ms);
 char	*trim_str_export(t_ms **ms);
+char	*trim_str_export2(t_ms **ms, size_t h);
 #endif
