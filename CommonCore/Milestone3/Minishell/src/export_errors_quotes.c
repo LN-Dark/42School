@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   export_errors_quotes.c                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/31 10:43:53 by hfilipe-          #+#    #+#             */
+/*   Updated: 2025/03/31 10:47:56 by pbranco-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/minishell.h"
 
 void	errors_with_quotes3_1_1(char *input, size_t *i, int *error, int *found)
@@ -8,7 +20,7 @@ void	errors_with_quotes3_1_1(char *input, size_t *i, int *error, int *found)
 		while (input[*i] && input[(*i)++] != '"')
 		{
 			if (!ft_isalpha(input[*i]) && input[*i] != '_' && \
-			input[*i] != '"' && input[*i] != '\'' && \
+			input[*i] != '"' && input[*i] != '\'' && input[*i] != '+' && \
 			!ft_isdigit(input[*i]) && !(*found) && input[*i] != '$')
 			{
 				(*error)++;
@@ -35,7 +47,7 @@ void	errors_with_quotes3_1(char *input, size_t *i, int *error, int *found)
 		while (input[*i] && input[(*i)++] != '\'')
 		{
 			if (!ft_isalpha(input[*i]) && input[*i] != '_' && \
-			input[*i] != '"' && input[*i] != '\'' && \
+			input[*i] != '"' && input[*i] != '\'' && input[*i] != '+' && \
 			!ft_isdigit(input[*i]) && !(*found) && input[*i] != '$')
 			{
 				(*error)++;
@@ -65,7 +77,7 @@ void	errors_with_quotes2_1(char *input, size_t *i, int *found, int *error)
 	}
 	if (!(ft_isalpha(input[*i])) && input[*i] != '_' && input[*i] != '"' && \
 	input[*i] != '\'' && !(ft_isdigit(input[*i])) && !(*found) && \
-	input[*i] != '\0' && input[*i] != '$')
+	input[*i] != '\0' && input[*i] != '$' && input[*i] != '+')
 	{
 		(*error)++;
 		if (input[*i])

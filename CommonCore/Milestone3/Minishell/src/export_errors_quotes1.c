@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   export_errors_quotes1.c                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/31 10:43:58 by hfilipe-          #+#    #+#             */
+/*   Updated: 2025/03/31 10:43:59 by hfilipe-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/minishell.h"
 
 void	print_error_export(size_t *i, size_t l, char *input)
@@ -17,7 +29,8 @@ void	print_error_export(size_t *i, size_t l, char *input)
 void	errors_with_quotes3_2(char *input, size_t *i, int *found)
 {
 	if (input[*i] && (ft_isalpha(input[*i]) || ft_isdigit(input[*i]) || \
-	input[*i] == '_' || input[*i] == '$') && !(*found) && input[*i] != ' ')
+	input[*i] == '_' || input[*i] == '$' || input[*i] == '+') && !(*found) && \
+	input[*i] != ' ')
 		(*i)++;
 	if (*found && input[*i] && input[*i] != ' ')
 		(*i)++;

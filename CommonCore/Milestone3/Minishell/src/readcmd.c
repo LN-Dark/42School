@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   readcmd.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/31 10:47:14 by pbranco-          #+#    #+#             */
+/*   Updated: 2025/03/31 10:48:49 by pbranco-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "../includes/minishell.h"
 
 void	get_prompt(t_ms **ms)
@@ -26,9 +37,7 @@ void	ft_readcmd(t_ms **ms)
 	(*ms)->here_check = 0;
 	(*ms)->pipes = NULL;
 	get_prompt(ms);
-	//(*ms)->input = readline((*ms)->prompt);
-	//(*ms)->input = readline("minishell: ");
-	(*ms)->input = readline("minishell: ");
+	(*ms)->input = readline((*ms)->prompt);
 	g_signal_handler(ms);
 	if ((*ms)->input == NULL)
 	{
