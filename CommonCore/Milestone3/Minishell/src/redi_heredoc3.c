@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   redi_heredoc3.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 13:36:49 by pbranco-          #+#    #+#             */
-/*   Updated: 2025/03/31 10:42:13 by pbranco-         ###   ########.fr       */
+/*   Updated: 2025/03/31 13:39:17 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../includes/minishell.h"
 
 void	free_controld(t_ms **ms)
@@ -42,12 +43,14 @@ void	free_controld(t_ms **ms)
 
 int	control_d_exit(t_ms **ms, char *e_o_f)
 {
+	free((*ms)->h.bff);
+	(*ms)->h.bff = NULL;
 	(*ms)->exit_status = 0;
 	check_extra_heredoc(ms);
-	free((*ms)->cmd);
-	(*ms)->cmd = NULL;
 	if ((*ms)->h.n_str2 != NULL)
 	{
+		free((*ms)->cmd);
+		(*ms)->cmd = NULL;
 		if ((*ms)->h.n_str)
 		{
 			free ((*ms)->h.n_str);
@@ -58,8 +61,7 @@ int	control_d_exit(t_ms **ms, char *e_o_f)
 	else
 	{
 		ft_put_error(ERROR_HERE, "%s", e_o_f);
-		free(e_o_f);
-		free_controld(ms);
+		heredoc2(ms, 1, e_o_f);
 	}
 	return (0);
 }

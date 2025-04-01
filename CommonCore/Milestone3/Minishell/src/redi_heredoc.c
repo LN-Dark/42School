@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   redi_heredoc.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 13:36:49 by pbranco-          #+#    #+#             */
-/*   Updated: 2025/03/31 10:42:20 by pbranco-         ###   ########.fr       */
+/*   Updated: 2025/03/31 17:35:59 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../includes/minishell.h"
 
 char	*get_eof(char *command, t_ms **ms)

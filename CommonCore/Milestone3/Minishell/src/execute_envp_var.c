@@ -6,7 +6,7 @@
 /*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 10:42:42 by hfilipe-          #+#    #+#             */
-/*   Updated: 2025/03/31 10:42:43 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2025/03/31 18:36:52 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,13 +65,21 @@ char	*get_cmd(char *cmd, int *qt)
 void	execute_v2(char *command, char *input2, t_ms **ms)
 {
 	char	*input;
-
-	input = get_extracmd(command);
-	free(input2);
-	if (input != NULL)
+	if (ft_strchr(command, '\'') != NULL)
 	{
-		choose_builtin(input, ms);
-		free(input);
+		input = input2;
+		execute_pipe(input2, ms);
+		free(input2);
+	}
+	else
+	{	
+		input = get_extracmd(command);
+		free(input2);
+		if (input != NULL)
+		{
+			choose_builtin(input, ms);
+			free(input);
+		}
 	}
 }
 

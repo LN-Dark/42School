@@ -6,7 +6,7 @@
 /*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 10:41:37 by hfilipe-          #+#    #+#             */
-/*   Updated: 2025/03/31 10:41:38 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2025/03/31 18:45:19 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ char	*cd_slash_dots(char *input, t_ms **ms)
 		return (ft_free(str), ft_strdup("/"));
 	input2 = get_j_dots(input, &j);
 	if (j >= i)
-		return (ft_free(str), ft_free(input2), ft_strdup("/"));
+		return (ft_free(str), ft_free(input2), check_it_has_more(input));
 	(*ms)->a = 0;
 	while (input2[(*ms)->a])
 	{

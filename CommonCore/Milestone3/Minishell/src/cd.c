@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   cd.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/24 08:53:49 by pbranco-          #+#    #+#             */
-/*   Updated: 2025/03/31 10:48:25 by pbranco-         ###   ########.fr       */
+/*   Created: 2025/03/31 11:36:56 by hfilipe-          #+#    #+#             */
+/*   Updated: 2025/03/31 11:36:57 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../includes/minishell.h"
 
 int	search_home(t_ms **ms)

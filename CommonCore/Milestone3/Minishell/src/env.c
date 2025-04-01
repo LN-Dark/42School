@@ -6,7 +6,7 @@
 /*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 10:42:18 by hfilipe-          #+#    #+#             */
-/*   Updated: 2025/03/31 10:42:19 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2025/03/31 18:27:16 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,7 @@ int	check_env_args(char *cmd)
 {
 	size_t	i;
 
-	i = 0;
-	while (cmd[i] == ' ')
-		i++;
-	i += 3;
+	i = 3;
 	while (cmd[i] == ' ')
 		i++;
 	if (!cmd[i])
@@ -50,7 +47,7 @@ void	print_env2(char **envp, size_t i)
 {
 	while (envp[i])
 	{
-		if (ft_strchr(envp[i], '=') && search_e(envp, i))
+		if (ft_strchr(envp[i], '='))
 			ft_printf("%s\n", envp[i]);
 		i++;
 	}
@@ -65,9 +62,9 @@ void	print_env(t_ms **ms, char *cmd)
 
 	cmd2 = ft_strtrim(cmd, "env");
 	cmd3 = cmd2;
-	while (*cmd3 == ' ')
+	while (*cmd3 && *cmd3 < 33)
 		cmd3++;
-	if (check_env_args(cmd))
+	if (check_env_args(cmd3))
 	{
 		ft_put_error(ERROR_ENV, "%s", cmd3);
 		(*ms)->exit_status = 127;

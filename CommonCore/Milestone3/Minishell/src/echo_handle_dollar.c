@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   echo_handle_dollar.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 10:41:53 by hfilipe-          #+#    #+#             */
-/*   Updated: 2025/03/31 10:41:54 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2025/03/31 13:10:29 by pbranco-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	handle_dollar_sign(char *cmd, t_ms **ms, int *i)
 {
 	char	*cmd_execute;
 
-	cmd_execute = ft_strndup(cmd + 1, ft_strlen_abc(cmd + 1, '$', '"', '\''));
+	cmd_execute = ft_strndup(cmd + 1, ft_strlen_dolar(cmd + 1));
 	if (cmd[1] && (cmd[1] == '?' || cmd[1] == '$' || cmd[1] == '0'))
 	{
 		handle_dollar_sign_special_cases(cmd[1], ms);
@@ -49,7 +49,10 @@ int	handle_env_var_echo(char *cmd, t_ms **ms)
 	env_var = get_env_var_value(ms, cmd);
 	if (env_var)
 	{
-		ft_putstr_fd(env_var, STDOUT_FILENO);
+		if (env_var[0] == '\\')
+			ft_putstr_fd(env_var + 1, STDOUT_FILENO);
+		else
+			ft_putstr_fd(env_var, STDOUT_FILENO);
 		return (free(env_var), 1);
 	}
 	return (0);

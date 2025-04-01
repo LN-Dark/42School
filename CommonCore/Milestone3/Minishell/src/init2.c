@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   init2.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 08:55:52 by pbranco-          #+#    #+#             */
-/*   Updated: 2025/03/31 10:40:40 by pbranco-         ###   ########.fr       */
+/*   Updated: 2025/03/31 11:41:53 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../includes/minishell.h"
 
 void	init_envp_empty2(char *path, char**cmd1, char **empty)

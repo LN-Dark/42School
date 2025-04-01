@@ -6,7 +6,7 @@
 /*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 10:42:24 by hfilipe-          #+#    #+#             */
-/*   Updated: 2025/03/31 10:42:26 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2025/03/31 19:17:34 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,17 @@
 void	choose_builtin3(char *command, t_ms **ms, char **commandsplit)
 {
 	char	*cmd2;
+	size_t	i;
 
+	i = 0;
 	cmd2 = ft_strdup(command);
-	command = remove_quotes_execute(command);
-	command = expand_heredoc(ms, 1, command);
+	if (ft_strchr(command, '\'') == NULL)
+	{
+		command = remove_quotes_execute(command);
+		command = expand_heredoc(ms, 1, command);
+	}
+	else
+		command = remove_quotes_execute_exp(command, i);
 	if (command == NULL || command[0] == '\0')
 	{
 		ft_put_error(ERROR_CMD_, "%s", cmd2);
@@ -60,6 +67,27 @@ int	choose_builtin2(char *command, t_ms **ms, char **commandsplit)
 	return (1);
 }
 
+char	*str_without_special(char *str)
+{
+	char	*str2;
+	size_t	i;
+	size_t	j;
+
+	i = 0;
+	j = 0;
+	str2 = malloc(sizeof(char) * (ft_strlen(str) + 1));
+	if (str[i] && (str[i] == ' ' || (str[i] >= 7 && str[i] >= 9)))
+	{
+		while (str[i] && str[i] < 33)
+		i++;
+	}
+	while (str[i])
+		str2[j++] = str[i++];
+	str2[j] = '\0';
+	free(str);
+	return (str2);
+}
+
 char	**init_builtin(t_ms **ms, char *command)
 {
 	char	**commandsplit;
@@ -69,6 +97,7 @@ char	**init_builtin(t_ms **ms, char *command)
 	if (execs_error(command, ms))
 		return (NULL);
 	str = remove_quotes_execute(command);
+	str = str_without_special(str);
 	commandsplit = ft_split(str, ' ');
 	free(str);
 	return (commandsplit);
@@ -78,6 +107,8 @@ void	choose_builtin(char *command, t_ms **ms)
 {
 	char	**commandsplit;
 
+	if (check_tabs_and_spaces(command))
+		return ;
 	commandsplit = init_builtin(ms, command);
 	if (!commandsplit)
 		return ;
@@ -94,10 +125,7 @@ void	choose_builtin(char *command, t_ms **ms)
 			(*ms)->check_inpt = choose_builtin2(command, ms, commandsplit);
 	}
 	else
-	{
-		ft_put_error(ERROR_CMD_, "%s", command);
-		(*ms)->exit_status = 127;
-	}
+		empty_command(command, ms);
 	if ((*ms)->check_inpt)
 		ft_free(commandsplit);
 }

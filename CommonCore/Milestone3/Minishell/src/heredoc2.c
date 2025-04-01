@@ -3,13 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   heredoc2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pcruz <pcruz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 08:53:49 by pbranco-          #+#    #+#             */
-/*   Updated: 2025/03/31 10:41:04 by pbranco-         ###   ########.fr       */
+/*   Updated: 2025/04/01 12:58:52 by pcruz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../includes/minishell.h"
+
 
 void	control_d(t_ms **ms, char *e_o_f)
 {
@@ -40,40 +42,30 @@ void	control_d(t_ms **ms, char *e_o_f)
 	process_redirects2((*ms)->h.n_str2, ms);
 }
 
-void	remove_quotes_heredoc3(char *cmd, t_ms **ms, size_t *i)
+void	remove_quotes_heredoc3_0(char *cmd, t_ms **ms, size_t *i, char *str)
 {
-	if (!(*ms)->h_found && cmd[*i] == '\'')
+	if (cmd[*i] == '<')
+		str[((*ms)->j)++] = cmd[(*i)++];
+	while (cmd[*i] == ' ')
+		str[((*ms)->j)++] = cmd[(*i)++];
+	if (cmd[*i] == '\'')
 	{
 		(*ms)->h_found = 1;
 		(*i)++;
 	}
-	if (!(*ms)->h_found && cmd[*i] == '"' )
-	{
+	else if (cmd[*i] == '"')
+		{
 		(*ms)->h_found = 2;
 		(*i)++;
-	}
-}
-
-void	remove_quotes_heredoc3_0(char *cmd, t_ms **ms, size_t *i, char *str)
-{
-	while (cmd[*i])
-	{
-		remove_quotes_heredoc3(cmd, ms, i);
-		if ((*ms)->h_found == 1 && cmd[*i] == '\'')
-		{
-			(*i)++;
-			break ;
 		}
-		if ((*ms)->h_found == 2 && cmd[*i] == '"')
-		{
-			(*i)++;
-			break ;
-		}
-		if (cmd[*i])
+	if ((*ms)->h_found == 1)
+		while (cmd[*i] && cmd[*i] != '\'')
 			str[((*ms)->j)++] = cmd[(*i)++];
-	}
-	if (cmd[*i] && (*ms)->h_found)
-		while (cmd[*i])
+	else if ((*ms)->h_found == 2)
+		while (cmd[*i] && cmd[*i] != '"')
+			str[((*ms)->j)++] = cmd[(*i)++];
+	else
+		while (cmd[*i] && cmd[*i] != ' ')
 			str[((*ms)->j)++] = cmd[(*i)++];
 }
 

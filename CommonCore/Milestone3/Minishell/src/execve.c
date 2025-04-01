@@ -6,7 +6,7 @@
 /*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 10:42:54 by hfilipe-          #+#    #+#             */
-/*   Updated: 2025/03/31 10:42:54 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2025/03/31 19:17:36 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,11 @@ void	execute(char *av, t_ms **ms)
 	char	**cmd;
 	char	*path;
 
+	if (check_tabs_and_spaces(av))
+		return (free_ms(ms));
 	signal(SIGQUIT, signal_handler_sigquit);
 	cmd = ft_split(av, ' ');
-	if (access(cmd[0], F_OK | X_OK) == 0)
+	if (access(cmd[0], F_OK | X_OK) == 0 && !check_has_path(ms))
 		path = cmd[0];
 	else
 	{

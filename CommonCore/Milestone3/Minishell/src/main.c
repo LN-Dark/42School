@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 08:53:49 by pbranco-          #+#    #+#             */
-/*   Updated: 2025/03/31 10:42:54 by pbranco-         ###   ########.fr       */
+/*   Updated: 2025/03/31 13:44:28 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../includes/minishell.h"
 
-volatile int	g_signal = 0;
+int	g_signal = 0;
 
 int	main(int ac, char **av, char **envp)
 {

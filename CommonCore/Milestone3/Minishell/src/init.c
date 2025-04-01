@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 08:55:03 by pbranco-          #+#    #+#             */
-/*   Updated: 2025/03/31 10:40:44 by pbranco-         ###   ########.fr       */
+/*   Updated: 2025/03/31 11:40:08 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../includes/minishell.h"
 
 char	**init_envp2(char **new_envp, int i)
@@ -54,7 +55,7 @@ void	init_envp(t_ms **ms, char **envp)
 
 	i = 0;
 	if (!envp || envp[0] == NULL)
-		init_envp_empty(ms);
+		init_envp_empty1(ms);
 	else
 	{
 		init_envp1(ms, envp, i);

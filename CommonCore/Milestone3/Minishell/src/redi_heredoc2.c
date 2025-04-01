@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   redi_heredoc2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 08:53:49 by pbranco-          #+#    #+#             */
-/*   Updated: 2025/03/31 10:42:17 by pbranco-         ###   ########.fr       */
+/*   Updated: 2025/03/31 17:30:27 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../includes/minishell.h"
 
 void	free_exit_heredoc(t_ms **ms, char *e_o_f)

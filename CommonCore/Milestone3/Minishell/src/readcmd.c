@@ -1,14 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   readcmd.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/31 10:47:14 by pbranco-          #+#    #+#             */
-/*   Updated: 2025/03/31 10:48:49 by pbranco-         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 #include "../includes/minishell.h"
 
 void	get_prompt(t_ms **ms)
@@ -31,6 +20,24 @@ void	get_prompt(t_ms **ms)
 	free(input);
 }
 
+void	skip_initial_spaces_radcmd(t_ms **ms)
+{
+	int		i;
+	char	*str;
+	char	*tmp;
+
+	i = 0;
+	if (!(*ms)->input)
+		return ;
+	while ((*ms)->input[i] && ((*ms)->input[i] == 32 \
+		|| ((*ms)->input[i] >= 9 && (*ms)->input[i] <= 13)))
+		i++;
+	str = ft_strdup((*ms)->input + i);
+	ft_free_gnl(&(*ms)->input);
+	skip_initial_spaces_radcmd_help(&str, &tmp);
+	(*ms)->input = ft_strdup_free(str);
+}
+
 void	ft_readcmd(t_ms **ms)
 {
 	heredoc_rm(ms);
@@ -47,6 +54,7 @@ void	ft_readcmd(t_ms **ms)
 	else if ((*ms)->input[0] != '\0' && (*ms)->is_exit == 0)
 	{
 		add_history((*ms)->input);
+		skip_initial_spaces_radcmd(ms);
 		handle_input(ms, 1);
 	}
 	ft_free_gnl(&(*ms)->prompt);

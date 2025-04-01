@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+         #
+#    By: pcruz <pcruz@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/31 10:46:42 by hfilipe-          #+#    #+#              #
-#    Updated: 2025/03/31 10:46:43 by hfilipe-         ###   ########.fr        #
+#    Updated: 2025/04/01 12:51:05 by pcruz            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ SRCS = $(addprefix $(MS_PATH)/, main.c readcmd.c expander.c expander2.c\
 		redirects_errors.c input_heredoc2.c handle_input1.c heredoc_utils.c \
 		redi_heredoc4.c redi_remove_quotes.c signals2.c utils3.c echo_n.c \
 		export_errors_quotes.c export_errors_quotes1.c export_errors_quotes2.c \
-		init2.c export1.c export_variable_trim.c)
+		init2.c export1.c export_variable_trim.c cd_slash3.c readcmd_helpers.c)
 OBJS = $(addprefix $(OBJ_DIR)/, $(notdir $(SRCS:.c=.o)))
 MINISHELL = minishell
 LIBFT_DIR = ./libft

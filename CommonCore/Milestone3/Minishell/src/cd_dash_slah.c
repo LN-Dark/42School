@@ -6,7 +6,7 @@
 /*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 10:40:42 by hfilipe-          #+#    #+#             */
-/*   Updated: 2025/03/31 10:40:43 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2025/03/31 13:46:43 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,16 @@ int	search_pwd(t_ms **ms, int nb)
 
 void	cd_dash2(t_ms **ms)
 {
+	char	*tmp;
+
 	ft_putstr_fd("minishell: cd: OLDPWD not set\n", 2);
 	(*ms)->exit_status = 1;
+	if ((*ms)->cd == 1)
+	{
+		tmp = ft_strdup("export OLDPWD");
+		handle_export(tmp, ms);
+		free(tmp);
+	}
 }
 
 void	cd_dash(t_ms **ms)
@@ -97,7 +105,7 @@ void	cd_dash(t_ms **ms)
 		(*ms)->oldpwd = tmp;
 		if (search_pwd(ms, 0) || (*ms)->cd == 1)
 		{
-			tmp = ft_strjoin("Export OLDPWD=", (*ms)->oldpwd);
+			tmp = ft_strjoin("export OLDPWD=", (*ms)->oldpwd);
 			handle_export(tmp, ms);
 			free(tmp);
 		}
@@ -105,7 +113,7 @@ void	cd_dash(t_ms **ms)
 		cd_dash3(ms);
 		if (search_pwd(ms, 1))
 		{
-			tmp = ft_strjoin("Export PWD=", (*ms)->pwd);
+			tmp = ft_strjoin("export PWD=", (*ms)->pwd);
 			handle_export(tmp, ms);
 			free(tmp);
 		}
