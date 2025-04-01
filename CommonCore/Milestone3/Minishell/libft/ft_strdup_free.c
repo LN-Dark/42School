@@ -3,31 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup_free.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hfilipe- <hfilipe-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pcruz <pcruz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 15:04:46 by pcruz             #+#    #+#             */
-/*   Updated: 2025/03/10 14:13:01 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2025/04/01 10:03:02 by pcruz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strndup_free(char *s, size_t n)
+char	*ft_strdup_free(char *s)
 {
-	char	*dup;
-	size_t	i;
+	int		i;
+	int		j;
+	char	*str;
 
-	if (!s)
-		return (NULL);
-	dup = (char *)malloc(n + 1);
-	if (!dup)
+	j = ft_strlen(s);
+	str = (char *)malloc(sizeof(char) * (j + 1));
+	if (str == NULL)
 		return (NULL);
 	i = 0;
-	while (i < n && s[i] != '\0')
+	while (i < j)
 	{
-		dup[i] = s[i];
+		str[i] = s[i];
 		i++;
 	}
-	dup[i] = '\0';
-	return (free(s), dup);
+	str[i] = '\0';
+	return (free(s), str);
 }

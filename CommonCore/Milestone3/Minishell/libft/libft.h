@@ -87,6 +87,7 @@ char	*ft_strndup_gnl(const char *s, int lenght);
 char	*ft_strdup_gnl(char *src);
 char	*ft_strncat(char *dst, const char *src, size_t n);
 void	ft_putendl_fd(char *s, int fd);
+char	*ft_strcjoin(char *str, char c);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t n);
 char	*ft_substr(char const *s, unsigned int start, size_t len);

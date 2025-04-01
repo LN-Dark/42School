@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pbranco- <pbranco-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pcruz <pcruz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 10:14:29 by pbranco-          #+#    #+#             */
-/*   Updated: 2025/03/31 10:44:33 by pbranco-         ###   ########.fr       */
+/*   Updated: 2025/04/01 12:51:50 by pcruz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #ifndef MINISHELL_H
 # define MINISHELL_H
 
@@ -41,19 +42,19 @@
 # define ERROR_PERMS "minishell: %s: Permission denied\n"
 # define ERROR_ECHO "syntax error near unexpected token 'newline'\n"
 # define ERROR_SNTAX "syntax error near unexpected token '%s'\n"
-# define ERROR_EXP_P "minshell: export: '%s': not a valid identifier\n"
-# define ERROR_EXP_M "minshell: export: =: invalid option\n"
-# define ERROR_FORD "minshell: %s: No such file or directory\n"
-# define ERROR_QT "minshell: %s: The project should not handle \
+# define ERROR_EXP_P "minishell: export: '%s': not a valid identifier\n"
+# define ERROR_EXP_M "minishell: export: =: invalid option\n"
+# define ERROR_FORD "minishell: %s: No such file or directory\n"
+# define ERROR_QT "minishell: %s: The project should not handle \
 unclosed quotes!\n"
 # define ERROR_HERE "minishell: warning: here-document \
 delimited by end-of-file (wanted `%s')\n"
-# define ERROR_NRBS "minshell: '%s' not required by subject\n"
+# define ERROR_NRBS "minishell: '%s' not required by subject\n"
 # define BG_BLUE "\033[44m"
 # define BOLD "\033[1m"
 # define RESET "\033[0m"
 
-extern volatile int	g_signal;
+extern int	g_signal;
 
 typedef struct rep_env_vars
 {
@@ -409,4 +410,16 @@ void	errors_with_quotes3_1(char *input, size_t *i, int *error, int *found);
 int		errors_e_out(char **input_trim, t_ms **ms);
 char	*trim_str_export(t_ms **ms);
 char	*trim_str_export2(t_ms **ms, size_t h);
+void	init_envp_empty1(t_ms **ms);
+int		ft_strlen_dolar(char *str);
+void	heredoc2(t_ms **ms, size_t i, char *e_o_f);
+int		check_tabs_and_spaces(char *av);
+int		check_has_path(t_ms **ms);
+char	*remove_quotes_execute_exp(char *cmd, size_t i);
+char	*check_it_has_more(char *input);
+void	empty_command(char *command, t_ms **ms);
+void	skip_initial_spaces_radcmd_help(char **str, char **tmp);
+void	handle_spaces_and_tabs_rdcmd(char **str, char **tmp, int *i);
+void	handle_single_quotes_rdcmd(char **str, char **tmp, int *i);
+void	handle_double_quotes_rdcmd(char **str, char **tmp, int *i);
 #endif

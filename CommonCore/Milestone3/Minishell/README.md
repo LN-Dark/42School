@@ -1,3 +1,5 @@
+## Project Partner [Hugo Lopes](https://github.com/Hugofslopes)
+
 # Minishell Tests
 
 ## Tests
